@@ -1,0 +1,11 @@
+{
+  "name": "transparency-script",
+  "version": "1.0.0",
+  "description": "A script allowing you to use custom background images for Discord",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MWR",
+  "license": "ISC"
+}
