@@ -8,8 +8,8 @@ This is a script for changing the background color of Discord to <b>any image</b
 
 - <b> This is against Discord's Terms Of Service, specifically, any client-side modification is forbidden. </b> <br>
   However, Discord will not actively look out for such users, unless you are reported, but this script has measures against that.
-- <b> I'm not held responsible if during the manual installation something happens to your client, making it stop working. </b> <br>
-  You can reinstall the client and try the manual installation again.
+- <b> Sometimes, when implementing the script to load with Discord, after Discord updates their app, this script might get deleted by the new update. </b> <br>
+  You can reinstall the script by repeating the steps described below in this page.
 - <b> With future updates to Discord, some elements' names might change, which will probably cause certain elements to appear not transparent anymore. I will try to mitigate those errors as soon as possible. </b> <br>
   If you know how to code JavaScript and CSS, then you may fix them yourself, if you're not willing to wait for updates to this script.
 - <b>This does not yet work with the web application, only with the desktop one. </b> <br>
