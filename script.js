@@ -1,5 +1,5 @@
 (function() {
-  // utilities
+  // utils
   (function createLocalStorage() {
     const iframe = document.createElement("iframe");
     iframe.style.display = "none";

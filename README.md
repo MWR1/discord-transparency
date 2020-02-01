@@ -19,9 +19,11 @@ This is a script for changing the background color of Discord to <b>any image</b
 
 ## Features
 
-- You can change the background image by pressing `CTRL + ALT`. ❗ You have to post the image on Discord first then use the link provided by them (press on "Open original", and copy the link) and paste that inside the input. ❗
+- You can change the background image by pressing `CTRL + ALT`.
+  ⚠ You have to post the image on Discord first then use the link provided by them (press on "Open original", and copy the link) and paste that inside the input.
 - You can deactivate the theme by using `CTRL + D`. This is especially useful when you want to take a screenshot of a message, or of the entire desktop but you're afraid that someone might report you for using this script. It will disable the theme, making Discord look untouched.
 - You can change the brightness of the image by pressing `CTRL + B` and moving the slider button. This will update in real time, and you can save the brightness level by pressing the button.
+- The "n blocked messages" dialog from when you block people has been removed, so your natural curiosity isn't being sparked anymore.
 
 ## Prerequisites (if you want to implement the script in such a way that it launches at the same time with Discord)
 
@@ -59,6 +61,7 @@ There are two ways of implementing this script.
 
 ## Planned updates in the future
 
+- Refactor a portion of the code
 - Add support for the web application
 - Create some sort of program that will automatically implement the script for you, easing up the installation process
 
