@@ -1,11 +1,18 @@
 {
-  "name": "transparency-script",
+  "name": "discord-transparency",
   "version": "1.0.0",
   "description": "A script allowing you to use custom background images for Discord",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack script.js",
+    "dev": "webpack script.js --mode development"
   },
   "author": "MWR",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.41.6"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  }
 }
