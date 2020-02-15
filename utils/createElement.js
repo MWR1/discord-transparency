@@ -15,7 +15,7 @@ export function createInput({
   input.id = id;
   input.value = value;
   input.placeholder = text;
-  window[eventType] = eventMethod;
+  input[eventType] = eventMethod;
 
   return input;
 }

@@ -8,14 +8,10 @@ This is a script for changing the background color of Discord to <b>any image</b
 
 - <b> This is against Discord's Terms Of Service, specifically, any client-side modification is forbidden. </b> <br>
   However, Discord will not actively look out for such users, unless you are reported, but this script has measures against that.
-- <b> I'm not held responsible if during the manual installation something happens to your client, making it stop working. </b> <br>
-  You can reinstall the client and try the manual installation again.
-- <b> With future updates to Discord, some elements' names might change, which will probably cause certain elements to appear not transparent anymore. I will try to mitigate those errors as soon as possible. </b> <br>
-  If you know how to code JavaScript and CSS, then you may fix them yourself, if you're not willing to wait for updates to this script.
+- <b> With future updates to Discord, some elements' names might change, which will probably cause certain elements to appear not transparent anymore. </b> <br>
+  I will try to mitigate those errors as soon as possible, but it will happen at some point.
 - <b>This does not yet work with the web application, only with the desktop one. </b> <br>
   I will make sure to add support for the web app in the near future.
-- <b>The launching with Discord installation below may be different on other operating systems.</b> <br>
-  Here I'm using Windows 10 to install it.
 
 ## Features
 
@@ -37,7 +33,7 @@ There are two ways of implementing this script.
 
 - Press `CTRL + SHIFT + I` inside Discord. A tab should open to the side
 - Navigate to the `Console` tab, near the top right corner
-- Copy the script found inside this page, inside the file <b>`script.min.js`</b>, under "for manual copy pasting"
+- Copy the script found inside this page, inside the file <b>`manual-copy-pasting.min.js`</b>, under "for manual copy pasting"
 - Go to Discord, then inside the Console tab paste the script you've just copied. And that's it. <br>
   ❗ Meanwhile this is the easier way to set it up, each time Discord launches, you have to follow these same steps again, because the script will be deleted with each relaunch. <b>But it's a little simpler this time</b>, because, while in the Console tab, you can just press the `ARROW UP KEY`, then `ENTER`, and the script will appear, without having to copy and paste it again from this page.
 
@@ -55,7 +51,7 @@ There are two ways of implementing this script.
 - Open the folder "unpacked", then open the folder "app", and locate <b>"mainScreen.js"</b>
 - Open "mainScreen.js" with Notepad, or any other text editor. We'll go with Notepad
 - Press Ctrl + F, and in there type `did-finish-load`, and check the "Down" checkbox under the "Direction" label, then press "Find Next"
-- Right under the text highlighted, press an enter, then in there type `mainWindow.webContents.executeJavaScript()`. Inside the `()` put the script located in <b>`script.min.js`</b> in this page, under "for starting up with discord"
+- Right under the text highlighted, press an enter, then in there type `mainWindow.webContents.executeJavaScript()`. Inside the `()` put the script located in <b>`startup-with-discord.js`</b> in this page, under "for starting up with discord"
 - Press Ctrl + S to save the file, then close it, and the folder "unpacked". Afterwards, go back to the terminal opened recently
 - Inside the terminal, paste this line: `npx asar pack unpacked core.asar`, and then wait. When it's done, you can close everything, and restart Discord. That's it
 

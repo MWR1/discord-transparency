@@ -49,7 +49,6 @@ import { overlayBar, overlayDarkener } from "./utils/classNames";
           sheet.innerHTML += `#app-mount{background: url(${input.value}) center center no-repeat !important; background-size: cover !important;}`;
           window.localStorage.setItem("bgImg", input.value);
           input.remove();
-          window.onkeypress = undefined;
           state.backgroundChangingInput.active = false;
         }
       }
@@ -61,15 +60,11 @@ import { overlayBar, overlayDarkener } from "./utils/classNames";
 
   const removeBackgroundChangingInput = _ => {
     state.backgroundChangingInput.input.remove();
-    window.onkeypress = undefined;
     state.backgroundChangingInput.active = false;
   };
 
   const createBrightnessTweaker = _ => {
-    if (state.brightnessTweaker.active) {
-      removeBrightnessTweaker();
-      return;
-    }
+    if (state.brightnessTweaker.active) return removeBrightnessTweaker();
 
     const slider = createInput({
       type: "range",
@@ -98,6 +93,7 @@ import { overlayBar, overlayDarkener } from "./utils/classNames";
     document.body.appendChild(slider);
     document.body.appendChild(saveButton);
     state.brightnessTweaker = {
+      ...state.brightnessTweaker,
       active: true,
       slider,
       saveButton
@@ -123,7 +119,7 @@ import { overlayBar, overlayDarkener } from "./utils/classNames";
           overlayBarEl.style.backgroundColor = `rgba(0,0,0,0.${state.brightnessTweaker.level}`;
         } else {
           sheet.setAttribute("media", "1px");
-          overlayBarEl.style.backgroundColor = "transparent";
+          overlayBarEl.style.backgroundColor = "var(--background-tertiary)";
         }
       } else if (e.key === "b") createBrightnessTweaker();
       else if (e.altKey) createBackgroundChangingInput();

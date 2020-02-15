@@ -36,6 +36,10 @@
     .${emojiPicker}, .${messagePopouts}, .${searchResults}, .${embedBackground} {
         background:rgba(0,0,0,0.7) !important;
     }
+
+    .${blockedMessages} {
+        display: none;
+    }
     
 
     #TRANSPARENCY__IMAGE-LINK {

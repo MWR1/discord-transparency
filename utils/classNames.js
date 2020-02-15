@@ -8,4 +8,5 @@ export const overlayBar =
   codeBlocks = "code.inline, .markup-2BOw-j code, code",
   messagePopouts = "messagesPopoutWrap-1MQ1bW",
   searchResults = "searchResultsWrap-2DKFzt",
-  embedBackground = "embedFull-2tM8--";
+  embedBackground = "embedFull-2tM8--",
+  blockedMessages = "blockedSystemMessage-2Rk1ek";
