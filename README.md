@@ -2,10 +2,6 @@
 
 This is a script for changing the background color of Discord to <b>any image</b>, enabling transparency.
 
-# NEW! 🎉🎉🎉
-
-An auto-installer has been published, you can download it at: [...]
-
 -   Beware that it is in very early development stages and there are bugs
 
 ![ss](https://i.imgur.com/NzwC6UV.png)
