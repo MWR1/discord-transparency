@@ -1,11 +1,11 @@
-import createLocalStorage from "./utils/createLocalStorage";
-import mainCSS from "./utils/styling";
+import createLocalStorage from "../utils/createLocalStorage";
+import mainCSS from "../utils/styling";
 import {
     createInput,
     createButton,
     createStyleSheet
-} from "./utils/createElement";
-import { overlayBar, overlayDarkener } from "./utils/classNames";
+} from "../utils/createElement";
+import { overlayBar, overlayDarkener } from "../utils/classNames";
 
 (function() {
     createLocalStorage();
