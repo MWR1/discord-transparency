@@ -27,7 +27,7 @@ This is a script for changing the background color of Discord to <b>any image</b
 
 # INSTALLING
 
-There are two ways of implementing this script.
+There are THREE ways of implementing this script.
 
 ## 1. Copy pasting the script inside the developer console
 
@@ -54,6 +54,17 @@ There are two ways of implementing this script.
 -   Right under the text highlighted, paste the code located in <b>`startup-with-discord.js`</b> in this page.
 -   Press Ctrl + S to save the file, then close it, and the folder "unpacked". Afterwards, go back to the terminal opened recently
 -   Inside the terminal, paste this line: `npx asar pack unpacked core.asar`, and then wait. When it's done, you can close everything, and restart Discord. That's it
+
+## 3. Using the installer (NEW)
+
+❗ Please note that the installer is in a very early release and it is prone to bugs, works only with the Discord Canary, and only on Windows.
+
+-   Go to the <b>Releases</b> tab
+-   Press on "Assets"
+-   Download the first file (that has the extension .rar)
+-   Extract it, then open the folder
+-   Inside the folder should be an `.exe` file. If you want it on your desktop, create a shortcut by `right click` -> `create shortcut`, then move that shortcut on your desktop. <b>Do not move the `.exe` file directly, because it will not work anymore!</b>
+-   That's it, enjoy!
 
 ## Planned updates in the future
 
