@@ -1,0 +1,22 @@
+{
+    "name": "discord-transparency",
+    "productName": "Discord Transparency Installer",
+    "version": "1.0.0",
+    "description": "A script allowing you to use custom background images for Discord",
+    "main": "main.js",
+    "scripts": {
+        "build-electron": "electron-packager . --out ../dist --overwrite --icon scriptupdater.ico",
+        "dev": "electron ."
+    },
+    "author": "MWR",
+    "license": "ISC",
+    "dependencies": {
+        "js-base64": "^2.5.2"
+    },
+    "devDependencies": {
+        "electron-packager": "^14.2.1",
+        "electron": "^8.1.0",
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11"
+    }
+}

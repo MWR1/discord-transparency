@@ -16,27 +16,38 @@ const insertionPositionString =
 const scriptURL =
     "https://api.github.com/repos/MWR1/discord-transparency/contents/startup-with-discord.js";
 
-const fs = require("fs");
-const { promisify } = require("util");
-const { exec } = require("child_process");
+///////
+const { ipcRenderer } = require("electron");
+///////
+
 const { decode } = require("js-base64").Base64;
-const fsReadFile = promisify(fs.readFile);
-const fsWriteFile = promisify(fs.writeFile);
-const fsReadDirectory = promisify(fs.readdir);
-const asyncExec = promisify(exec);
 
-function sanitize(input) {
-    return input.replace(/[^.0-9]/g, "");
-}
-
-async function assembleFullPath(firstHalfOfPath, restOfPath) {
+function assembleFullPath(firstHalfOfPath, restOfPath) {
     /*
      * reading the directory within the Discord folder to see the name of the first folder
      * we do this because the name of the first folder represents the version of Discord,
      * and thus, it might change in the future, therefore we can't hardcode the version.
      */
-    const files = await fsReadDirectory(firstHalfOfPath).catch(console.log);
-    return firstHalfOfPath.concat(sanitize(files[0]), restOfPath);
+
+    ipcRenderer.send("get-dir-version", firstHalfOfPath);
+
+    return new Promise((resolve, reject) => {
+        ipcRenderer.once("dir-version", (event, error, dirVersion) => {
+            if (error) return reject(error);
+            resolve(firstHalfOfPath.concat(dirVersion, restOfPath));
+        });
+    });
+}
+
+function getSourceCode(pathToFile) {
+    ipcRenderer.send("get-source-code", pathToFile);
+
+    return new Promise((resolve, reject) => {
+        ipcRenderer.once("source-code", (event, error, sourceCode) => {
+            if (error) return reject(error);
+            resolve(sourceCode);
+        });
+    });
 }
 
 async function alterSourceCode({
@@ -45,32 +56,65 @@ async function alterSourceCode({
     repositoryScript,
     currentScriptCodeLength
 }) {
-    let sourceCode = await fsReadFile(pathToFile, "utf8").catch(console.log);
+    //fetching the source code of core.asar
+    let sourceCode = await getSourceCode(pathToFile).catch(alert);
 
-    //getting the index of "did-finish-load", where the script will go
+    /*
+     * getting the index of "did-finish-load", where the script will go, plus the length
+     * of "mainWindow.webContents.on('did-finish-load', () => {" to get the correct index
+     * at which we append the script
+     */
     const neededIndex =
         sourceCode.indexOf(insertionPositionString) +
         insertionPositionString.length;
 
+    //converting the code of mainScreen.js to an array
     sourceCode = sourceCode.split("");
+    //checking to see if there is old code that needs to be deleted
+    //TODO: maybe add some sort of pointers at which we could put the script, because
+    //      this logic will break if the user has the script already and decides to
+    //      reinstall/delete the installer (based on localStorage)
     if (currentScriptCodeLength !== 0)
         sourceCode.splice(neededIndex, currentScriptCodeLength);
 
+    //inserting the repository script at neededIndex
     sourceCode.splice(neededIndex, 0, repositoryScript);
     return sourceCode.join("");
+}
+
+function executeShell({ eventName, command }) {
+    ipcRenderer.send(eventName, command);
+
+    return new Promise((resolve, reject) => {
+        ipcRenderer.once(eventName.concat("-ok"), (event, error) => {
+            if (error) return reject(error);
+            resolve(1);
+        });
+    });
+}
+
+function writeToFile(pathToFile, code) {
+    ipcRenderer.send("write-file", { pathToFile, code });
+    return new Promise((resolve, reject) => {
+        ipcRenderer.once("write-file-ok", (event, error) => {
+            if (error) return reject(error);
+            resolve(1);
+        });
+    });
 }
 
 async function applyUpdates(repositoryScript, currentScriptCodeLength) {
     const transparencyUnloadPath = await assembleFullPath(
         discordUserDataPath,
         desktopCorePath
-    );
+    ).catch(alert);
     /*
      * unpacking core.asar with a shell command
      */
-    await asyncExec(
-        `cd ${transparencyUnloadPath} & npx asar extract core.asar __unpacked`
-    ).catch(console.log);
+    await executeShell({
+        eventName: "unpack-core-app",
+        command: `cd ${transparencyUnloadPath} & npx asar extract core.asar __unpacked`
+    });
     modifyToFinished(updateSteps.children[0]);
 
     /*
@@ -85,78 +129,108 @@ async function applyUpdates(repositoryScript, currentScriptCodeLength) {
     });
 
     //applying the script code
-    await fsWriteFile(
+    await writeToFile(
         `${transparencyUnloadPath}\\__unpacked\\app\\mainScreen.js`,
         alteredSourceCode
     );
     modifyToFinished(updateSteps.children[1]);
 
     //packing everything back together
-    await asyncExec(
-        `cd ${transparencyUnloadPath} & npx asar pack __unpacked core.asar`
-    );
+    await executeShell({
+        eventName: "pack-core-app",
+        command: `cd ${transparencyUnloadPath} & npx asar pack __unpacked core.asar`
+    });
     modifyToFinished(updateSteps.children[2]);
 }
 
 //checking for updates
 
 //TODO: replace './repo.json' to scriptURL
-//TODO: delete __unpacked after packing
-//TODO: error handling on front page
+//TODO: delete __unpacked after packing -- probably..?
+//TODO: BETTER* error handling... lol
+//TODO: minify code before building
 
-fetch(scriptURL).then(response => {
-    const currentVersion =
-        window.localStorage.getItem("currentVersion") || null;
-    const repositoryVersion = response.sha;
-    mainLoader.classList.add("main__loader--inactive");
-    mainUpdateButton.classList.add("main__update--active");
+fetch(scriptURL)
+    .then(r => r.json())
+    .then(response => {
+        /*
+         * getting current version from localStorage and the repository version
+         * from fetch
+         */
+        const currentVersion =
+            window.localStorage.getItem("currentVersion") || null;
+        const repositoryVersion = response.sha;
 
-    if (currentVersion === repositoryVersion) {
-        mainHeading.textContent = "Your current version is up to date.";
-        mainUpdateButton.textContent = "No update needed";
-        mainUpdateButton.disabled = true;
-        return;
-    } else {
-        mainHeading.textContent = "Update found!";
+        //removing the loader and making the button visible because in any case,
+        //these 2 steps will happen
+        mainLoader.classList.add("main__loader--inactive");
+        mainUpdateButton.classList.add("main__update--active");
 
-        const repositoryScript = decode(response.content);
-        const currentScriptCodeLength =
-            currentVersion === null
-                ? 0
-                : decode(window.localStorage.getItem("currentCodeScript"))
-                      .length;
-
-        mainUpdateButton.onclick = () => {
-            mainUpdateButton.textContent = "Updating...";
+        if (currentVersion === repositoryVersion) {
+            //updating title and button text, then concluding execution
+            mainHeading.textContent = "Your current version is up to date.";
+            mainUpdateButton.textContent = "No update needed";
             mainUpdateButton.disabled = true;
-            updateSteps.classList.add("main__update-steps--active");
+            return;
+        } else {
+            mainHeading.textContent = "Update found!";
 
-            applyUpdates(repositoryScript, currentScriptCodeLength)
-                .then(() => {
-                    window.localStorage.setItem(
-                        "currentVersion",
-                        repositoryVersion
-                    );
+            /*
+             * getting the repository script itself by base64 decoding it, then initializing
+             * a current script code variable that indicates the length of the old version
+             * of the script. this is to remove the old code.
+             */
+            const repositoryScript = decode(response.content);
+            const currentScriptCodeLength =
+                currentVersion === null
+                    ? 0
+                    : decode(window.localStorage.getItem("currentCodeScript"))
+                          .length;
 
-                    window.localStorage.setItem(
-                        "currentCodeScript",
-                        response.content
-                    );
+            mainUpdateButton.onclick = () => {
+                /*
+                 * changing the appearence and text of the button and initializing
+                 * the progress list
+                 */
+                mainUpdateButton.textContent = "Updating...";
+                mainUpdateButton.disabled = true;
+                updateSteps.classList.add("main__update-steps--active");
 
-                    setTimeout(() => {
-                        updateSteps.classList.remove(
-                            "main__update-steps--active"
+                applyUpdates(repositoryScript, currentScriptCodeLength)
+                    .then(() => {
+                        /*
+                         * we update the currentVersion/initialize it in localStorage
+                         * it is to check against the repository version to conclude
+                         * whether there have been any changes
+                         * we also update currentCodeScript. this is for getting
+                         * the script length for the currentScriptCodeLength variable
+                         * mentioned above
+                         */
+                        window.localStorage.setItem(
+                            "currentVersion",
+                            repositoryVersion
                         );
-                        mainHeading.textContent =
-                            "Update successful! Restart Discord to see changes";
-                        mainUpdateButton.textContent = "Updated!";
-                        mainUpdateButton.style.cursor = "default";
-                    }, 1000);
-                })
-                .catch(console.log);
-        };
-    }
-});
+
+                        window.localStorage.setItem(
+                            "currentCodeScript",
+                            response.content
+                        );
+
+                        //setting a timeout for the user to see that the list is finished
+                        setTimeout(() => {
+                            updateSteps.classList.remove(
+                                "main__update-steps--active"
+                            );
+                            mainHeading.textContent =
+                                "Update successful! Restart Discord to see changes";
+                            mainUpdateButton.textContent = "Updated!";
+                            mainUpdateButton.style.cursor = "default";
+                        }, 1000);
+                    })
+                    .catch(alert);
+            };
+        }
+    });
 
 function modifyToFinished(li) {
     li.classList.add("li--finished");
