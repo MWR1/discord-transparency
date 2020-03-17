@@ -14,7 +14,8 @@ import { overlayBar, overlayDarkener, messageInput } from "../utils/classNames";
     const state = {
         backgroundChangingInput: {
             active: false,
-            input: undefined
+            input: undefined,
+            messageInputEl: undefined
         },
         brightnessTweaker: {
             active: false,
@@ -27,7 +28,6 @@ import { overlayBar, overlayDarkener, messageInput } from "../utils/classNames";
     //components
     const overlayDarkenerEl = document.querySelector(`.${overlayDarkener}`);
     const overlayBarEl = document.querySelector(`.${overlayBar}`);
-    const messageInputEl = document.querySelector(`.${messageInput}`);
     const CSS = mainCSS({
         backgroundImageURL: window.localStorage.getItem("bgImg"),
         localBrightness:
@@ -39,6 +39,7 @@ import { overlayBar, overlayDarkener, messageInput } from "../utils/classNames";
     const sheet = createStyleSheet({ id: "TRANSAPRENCY", CSS });
 
     const createBackgroundChangingInput = _ => {
+        console.log(state);
         if (state.backgroundChangingInput.active)
             return removeBackgroundChangingInput();
 
@@ -56,16 +57,29 @@ import { overlayBar, overlayDarkener, messageInput } from "../utils/classNames";
                 }
             }
         });
+        // we need this because the user might be on another page where the input isn't
+        // or they try opening the input before the page, and input, loaded
+        if (state.backgroundChangingInput.messageInputEl)
+            state.backgroundChangingInput.messageInputEl.style.display = "none";
+        else {
+            const messageInputEl = document.querySelector(`.${messageInput}`);
+            state.backgroundChangingInput.messageInputEl = messageInputEl
+                ? messageInputEl
+                : undefined;
+        }
 
-        messageInputEl.style.display = "none";
         document.body.appendChild(input);
-        state.backgroundChangingInput = { active: true, input };
+        state.backgroundChangingInput.active = true;
+        state.backgroundChangingInput.input = input;
     };
 
     const removeBackgroundChangingInput = _ => {
         state.backgroundChangingInput.input.remove();
         state.backgroundChangingInput.active = false;
-        messageInputEl.style.display = "initial";
+
+        if (state.backgroundChangingInput.messageInputEl)
+            state.backgroundChangingInput.messageInputEl.style.display =
+                "initial";
     };
 
     const createBrightnessTweaker = _ => {
