@@ -5,8 +5,9 @@ import {
     createButton,
     createStyleSheet
 } from "../utils/createElement";
-import { overlayBar, overlayDarkener } from "../utils/classNames";
+import { overlayBar, overlayDarkener, messageInput } from "../utils/classNames";
 
+//TODO: add keybindings alert/tutorial
 (function() {
     createLocalStorage();
 
@@ -26,6 +27,7 @@ import { overlayBar, overlayDarkener } from "../utils/classNames";
     //components
     const overlayDarkenerEl = document.querySelector(`.${overlayDarkener}`);
     const overlayBarEl = document.querySelector(`.${overlayBar}`);
+    const messageInputEl = document.querySelector(`.${messageInput}`);
     const CSS = mainCSS({
         backgroundImageURL: window.localStorage.getItem("bgImg"),
         localBrightness:
@@ -55,6 +57,7 @@ import { overlayBar, overlayDarkener } from "../utils/classNames";
             }
         });
 
+        messageInputEl.style.display = "none";
         document.body.appendChild(input);
         state.backgroundChangingInput = { active: true, input };
     };
@@ -62,6 +65,7 @@ import { overlayBar, overlayDarkener } from "../utils/classNames";
     const removeBackgroundChangingInput = _ => {
         state.backgroundChangingInput.input.remove();
         state.backgroundChangingInput.active = false;
+        messageInputEl.style.display = "initial";
     };
 
     const createBrightnessTweaker = _ => {

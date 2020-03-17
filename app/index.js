@@ -71,9 +71,6 @@ async function alterSourceCode({
     //converting the code of mainScreen.js to an array
     sourceCode = sourceCode.split("");
     //checking to see if there is old code that needs to be deleted
-    //TODO: maybe add some sort of pointers at which we could put the script, because
-    //      this logic will break if the user has the script already and decides to
-    //      reinstall/delete the installer (based on localStorage)
     if (currentScriptCodeLength !== 0)
         sourceCode.splice(neededIndex, currentScriptCodeLength);
 
@@ -149,7 +146,12 @@ async function applyUpdates(repositoryScript, currentScriptCodeLength) {
 //TODO: delete __unpacked after packing -- probably..?
 //TODO: BETTER* error handling... lol
 //TODO: minify code before building
-
+//TODO: make reinstaller button so we can reapply script if it stops functioning after update
+/*
+ * TODO: maybe add some sort of pointers at which we could put the script, because
+ * this logic will break if the user has the script already and decides to
+ * reinstall/delete the installer (based on localStorage)
+ */
 fetch(scriptURL)
     .then(r => r.json())
     .then(response => {
