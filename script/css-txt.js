@@ -30,8 +30,6 @@
     .${friendsTab}{
         background:transparent !important;
     }
-
-
     
     .${emojiPicker}, .${messagePopouts}, .${searchResults}, .${embedBackground} {
         background:rgba(0,0,0,0.7) !important;
@@ -40,21 +38,7 @@
     .${blockedMessages} {
         display: none;
     }
-    
 
-    #TRANSPARENCY__IMAGE-LINK {
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        z-index:100; 
-        width: 180px;
-        height: 40px;
-        text-align: center;
-        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.5);
-        border-radius: 20px;
-    }
-    
     #TRANSPARENCY__SLIDE-BRIGHTNESS {
         position:absolute;
         right:43px;
@@ -77,5 +61,12 @@
         right:35px;
         height:40px;
         width:150px;
+    }
+
+    #TRANSPARENCY__BUTTON-IFRAME {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     `;

@@ -1,43 +1,45 @@
 export function createInput({
-  type,
-  id,
-  value = "",
-  text = "",
-  eventType = "onkeypress",
-  eventMethod = null
+    type,
+    id,
+    value = "",
+    text = "",
+    eventType = "onkeypress",
+    eventMethod = null
 }) {
-  const input = document.createElement("input");
-  input.type = type;
-  if (type === "range") {
-    input.min = 0;
-    input.max = 9;
-  }
-  input.id = id;
-  input.value = value;
-  input.placeholder = text;
-  input[eventType] = eventMethod;
+    const input = document.createElement("input");
+    input.type = type;
+    if (type === "range") {
+        input.min = 0;
+        input.max = 9;
+    }
+    input.id = id;
+    input.value = value;
+    input.placeholder = text;
+    input[eventType] = eventMethod;
 
-  return input;
+    return input;
 }
 
 export function createButton({ id, text = "", eventMethod = null }) {
-  const button = document.createElement("button");
-  button.id = id;
-  button.innerText = text;
-  button.onclick = eventMethod;
+    const button = document.createElement("button");
+    button.id = id;
+    button.innerText = text;
+    button.onclick = eventMethod;
 
-  return button;
+    return button;
 }
 
-export function createStyleSheet({ id, CSS }) {
-  const sheet = document.createElement("style");
-  const previousStylesheet = document.getElementById(id);
-  if (previousStylesheet) {
-    previousStylesheet.remove();
-    window.onkeydown = null;
-  }
-  sheet.appendChild(document.createTextNode(CSS));
-  sheet.id = id;
+export function createStyleSheet({ parent, id = "", isMainStyleSheet, CSS }) {
+    const sheet = parent.createElement("style");
+    if (isMainStyleSheet) {
+        const previousStylesheet = parent.getElementById(id);
+        if (previousStylesheet) {
+            previousStylesheet.remove();
+            window.onkeydown = null;
+        }
+    }
+    sheet.appendChild(parent.createTextNode(CSS));
+    sheet.id = id;
 
-  return sheet;
+    return sheet;
 }
