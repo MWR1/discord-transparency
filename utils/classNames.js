@@ -9,4 +9,5 @@ export const overlayBar =
     messagePopouts = "messagesPopoutWrap-1MQ1bW",
     searchResults = "searchResultsWrap-2DKFzt",
     embedBackground = "embedFull-2tM8--",
-    blockedMessages = "blockedSystemMessage-2Rk1ek";
+    blockedMessages = "blockedSystemMessage-2Rk1ek",
+    invites = "wrapper-35wsBm";

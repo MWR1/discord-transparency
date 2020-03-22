@@ -31,7 +31,7 @@
         background:transparent !important;
     }
     
-    .${emojiPicker}, .${messagePopouts}, .${searchResults}, .${embedBackground} {
+    .${emojiPicker}, .${messagePopouts}, .${searchResults}, .${embedBackground}, .${invites} {
         background:rgba(0,0,0,0.7) !important;
     }
 
@@ -68,5 +68,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 200px;
+        height: 60px;
     }
     `;
