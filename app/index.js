@@ -147,6 +147,8 @@ async function applyUpdates(repositoryScript, currentScriptCodeLength) {
 //TODO: BETTER* error handling... lol
 //TODO: minify code before building
 //TODO: make reinstaller button so we can reapply script if it stops functioning after update
+//TODO: add notify that they need to install NodeJS
+
 /*
  * TODO: maybe add some sort of pointers at which we could put the script, because
  * this logic will break if the user has the script already and decides to

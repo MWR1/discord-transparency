@@ -55,7 +55,7 @@ import { overlayBar, overlayDarkener } from "../utils/classNames";
                 } else {
                     sheet.setAttribute("media", "1px");
                     overlayBarEl.style.backgroundColor =
-                        "var(--background-tertiary)";
+                        "var(--color-tertiary)";
                 }
             } else if (e.key === "b")
                 createBrightnessTweaker(state, {

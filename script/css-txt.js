@@ -20,22 +20,27 @@
     } 
 
     ${codeBlocks} {
-        background:#2f3136; 
+        background-color:#2f3136; 
     }
     
     .${scrollBar} {
-        background:rgba(255,255,255,0.05) !important;
+        background-color:rgba(255,255,255,0.3) !important;
+    }
+
+    .${scrollBarContainer}{
+        background-color: transparent !important;
+        border: none !important;
     }
     
     .${friendsTab}{
-        background:transparent !important;
+        background-color:transparent !important;
     }
     
     .${emojiPicker}, .${messagePopouts}, .${searchResults}, .${embedBackground}, .${invites} {
-        background:rgba(0,0,0,0.7) !important;
+        background-color:rgba(0,0,0,0.7) !important;
     }
 
-    .${blockedMessages} {
+    .${allMessages}:not(.${notBlockedMessages}) {
         display: none;
     }
 
@@ -71,4 +76,5 @@
         width: 200px;
         height: 60px;
     }
+
     `;
