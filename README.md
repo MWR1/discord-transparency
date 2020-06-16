@@ -33,15 +33,15 @@ There are THREE ways of implementing this script.
 
 -   Press `CTRL + SHIFT + I` inside Discord. A tab should open to the side
 -   Navigate to the `Console` tab, near the top right corner
--   Copy the script found inside this page, inside the file <b>`manual-copy-pasting.min.js`</b>, under "for manual copy pasting"
--   Go to Discord, then inside the Console tab paste the script you've just copied. And that's it. <br>
+-   Copy the script from above, at the files section, in this page, from inside the file <b>`manual-copy-pasting.js`</b>
+-   Go to Discord, then inside the Console tab paste the script you've just copied. And that's it <br>
     ❗ Meanwhile this is the easier way to set it up, each time Discord launches, you have to follow these same steps again, because the script will be deleted with each relaunch. <b>But it's a little simpler this time</b>, because, while in the Console tab, you can just press the `ARROW UP KEY`, then `ENTER`, and the script will appear, without having to copy and paste it again from this page.
 
 ## 2. Launching the script with Discord
 
 ❗ This is a little bit harder than the copy and pasting technique, but you won't have to open the developer console again and again, each time discord launches.
 
--   Press the `WINDOWS KEY`, and then type `%appdata%`
+-   Press the `WINDOWS KEY`, and then type `%appdata%` (on Windows).
 -   Locate the folder called "Discord", and open it
 -   Open the first folder inside it, which should be something like `0.0.xxx`, and open it
 -   Open the folder called "modules"
@@ -50,9 +50,9 @@ There are THREE ways of implementing this script.
 -   Now, after the window opened, in there paste this line: `npx asar extract core.asar ./unpacked`. Wait for a bit, then a folder called "unpacked" should appear
 -   Open the folder "unpacked", then open the folder "app", and locate <b>"mainScreen.js"</b>
 -   Open "mainScreen.js" with Notepad, or any other text editor. We'll go with Notepad
--   Press Ctrl + F, and in there type `did-finish-load`, and check the "Down" checkbox under the "Direction" label, then press "Find Next"
--   Right under the text highlighted, paste the code located in <b>`startup-with-discord.js`</b> in this page.
--   Press Ctrl + S to save the file, then close it, and the folder "unpacked". Afterwards, go back to the terminal opened recently
+-   Search for the text `did-finish-load`. In Notepad, press Ctrl + F, and in there type `did-finish-load`, and check the "Down" checkbox under the "Direction" label, then press "Find Next"
+-   Right under the text highlighted, paste the code located in <b>`startup-with-discord.js`</b> from above, in the files section.
+-   Press Ctrl + S to save the file, then close it, and the folder "unpacked". Afterwards, go back to the terminal (in our case PowerShell) opened recently
 -   Inside the terminal, paste this line: `npx asar pack unpacked core.asar`, and then wait. When it's done, you can close everything, and restart Discord. That's it
 
 ## 3. Using the installer (NEW)
@@ -69,6 +69,7 @@ There are THREE ways of implementing this script.
 ## Planned updates in the future
 
 -   Add support for the web application
+-   Rewrite the installer, make it more performant, thoroughly cross-platform
 
 ## Contact
 

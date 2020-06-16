@@ -3,8 +3,8 @@ export function createInput({
     id,
     value = "",
     text = "",
-    eventType = "onkeypress",
-    eventMethod = null
+    eventType = "onkeydown",
+    eventMethod = null,
 }) {
     const input = document.createElement("input");
     input.type = type;
@@ -12,6 +12,7 @@ export function createInput({
         input.min = 0;
         input.max = 9;
     }
+
     input.id = id;
     input.value = value;
     input.placeholder = text;
@@ -42,4 +43,16 @@ export function createStyleSheet({ parent, id = "", isMainStyleSheet, CSS }) {
     sheet.id = id;
 
     return sheet;
+}
+
+export function createAlert({ text, containsHTML = false }) {
+    const alertElement = document.createElement("div");
+    alertElement.className = "TRANSPARENCY__ALERT";
+    alertElement[containsHTML ? "innerHTML" : "textContent"] = text;
+    document.body.appendChild(alertElement);
+
+    setTimeout(() => {
+        alertElement.classList.add("TRANSPARENCY__ALERT--INACTIVE");
+        setTimeout(() => alertElement.remove(), 1000);
+    }, 7000);
 }

@@ -36,36 +36,21 @@
         background-color:transparent !important;
     }
     
-    .${emojiPicker}, .${messagePopouts}, .${searchResults}, .${embedBackground}, .${invites} {
+    .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
         background-color:rgba(0,0,0,0.7) !important;
     }
 
-    .${allMessages}:not(.${notBlockedMessages}) {
+    div[class=${blockedMessages}]:not(.${allMessages}) {
         display: none;
     }
 
-    #TRANSPARENCY__SLIDE-BRIGHTNESS {
+    #TRANSPARENCY__SLIDE-BRIGHTNESS-IFRAME {
         position:absolute;
-        right:43px;
+        height: 100%;
+        right:0;
         top:0;
         bottom:0;
         margin:auto;
-        transform:translateY(200px);
-        transform: scale(1.5); 
-        height: 200px;
-        -webkit-appearance: slider-vertical;
-    }
-
-    #TRANSPARENCY__SAVE-BRIGHTNESS {
-        position:absolute;
-        right:43px;
-        top:0;
-        bottom:0;
-        margin:auto;
-        transform:translateY(200px);
-        right:35px;
-        height:40px;
-        width:150px;
     }
 
     #TRANSPARENCY__BUTTON-IFRAME {
@@ -73,8 +58,35 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 200px;
-        height: 60px;
+        z-index: 200;
+        width: 400px;
+        height: 215px;
     }
 
+    .TRANSPARENCY__ALERT { 
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+        padding: 20px;
+        font-size: 14px;
+        width: fit-content;
+        background-color: #faa61a;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        z-index: 10000;
+        box-shadow: rgba(255, 255, 255, 0.8) -1px 5px 11px 0px;
+        transition: transform 500ms ease;
+        animation: TRANSPARENCY__SLIDE 500ms ease;
+    }
+
+    @keyframes TRANSPARENCY__SLIDE {
+        from { transform: translateY(-130%); }
+        to { transform: translateY(0) }
+    }
+
+    .TRANSPARENCY__ALERT--INACTIVE {
+        transform: translateY(-130%);
+    }
     `;
