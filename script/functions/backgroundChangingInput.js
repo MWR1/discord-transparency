@@ -28,7 +28,8 @@ export default function createBackgroundChangingInput(state, sheet) {
     });
 
     const tip = document.createElement("p");
-    tip.textContent = `(!) The image you want as your background must be sent as a message on Discord, then you'll have to click on the image, press on "Open original", and copy the link from there.`;
+    tip.textContent =
+        "(!) The image you want as your background must be sent as a message on Discord, then you will have to click on the image, press on {Open original}, and copy the link from there.";
 
     iframe.contentDocument.body.appendChild(iframeSheet);
     iframe.contentDocument.body.appendChild(input);
