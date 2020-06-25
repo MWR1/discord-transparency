@@ -36,7 +36,7 @@
         background-color:transparent !important;
     }
     
-    .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
+    .${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
         background-color:rgba(0,0,0,0.7) !important;
     }
 

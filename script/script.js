@@ -6,6 +6,7 @@ import mainCSS from "../utils/styling";
 
 import { overlayBar, overlayDarkener } from "../utils/classNames";
 import text from "../utils/keyboardShortcutsText";
+import disableTheme from "./functions/disableTheme";
 
 (function () {
     createLocalStorage();
@@ -48,16 +49,8 @@ import text from "../utils/keyboardShortcutsText";
     //keydown manager
     window.onkeydown = (e) => {
         if (e.ctrlKey) {
-            if (e.key === "d") {
-                //disable theme
-                if (sheet.getAttribute("media")) {
-                    sheet.removeAttribute("media");
-                    overlayBarEl.style.backgroundColor = `rgba(0,0,0,0.${state.brightnessTweaker.level}`;
-                } else {
-                    sheet.setAttribute("media", "1px");
-                    overlayBarEl.style.backgroundColor = "var(--color-tertiary)";
-                }
-            } else if (e.key === "b")
+            if (e.code === "KeyD") disableTheme(state, sheet, overlayBarEl);
+            else if (e.code === "KeyB")
                 createBrightnessTweaker(state, {
                     overlayDarkenerEl,
                     overlayBarEl,

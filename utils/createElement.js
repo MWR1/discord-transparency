@@ -49,10 +49,11 @@ export function createAlert({ text, containsHTML = false }) {
     const alertElement = document.createElement("div");
     alertElement.className = "TRANSPARENCY__ALERT";
     alertElement[containsHTML ? "innerHTML" : "textContent"] = text;
+
     document.body.appendChild(alertElement);
 
     setTimeout(() => {
         alertElement.classList.add("TRANSPARENCY__ALERT--INACTIVE");
         setTimeout(() => alertElement.remove(), 1000);
-    }, 7000);
+    }, 10000);
 }

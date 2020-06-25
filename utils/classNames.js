@@ -15,6 +15,5 @@ export const overlayBar =
     embedBackground = "embedFull-2tM8--",
     blockedMessages = "groupStart-23k01U",
     invites = "wrapper-35wsBm",
-    allMessages = "message-2qnXI6";
-
-//TODO: tweak readme.md
+    allMessages = "message-2qnXI6",
+    inboxPopup = "recentMentionsPopout-3rCiI6";

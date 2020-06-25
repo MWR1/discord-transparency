@@ -24,7 +24,7 @@ export default function createBackgroundChangingInput(state, sheet) {
     const iframeSheet = createStyleSheet({
         parent: iframe.contentDocument,
         isMainStyleSheet: false,
-        CSS: `#TRANSPARENCY__IMAGE-LINK {display:block;margin:auto;z-index:100;width: 250px;height: 40px;text-align: center;box-shadow: 0 4px 7px rgba(0, 0, 0, 0.5);border-radius: 20px;}p{line-height: 18px;background-color: rgba(0, 0, 0, 0.8);font-family:monospace;padding: 10px;border-radius: 20px;color: white;}`,
+        CSS: `body{display:flex;justify-content:space-evenly;align-items:center;flex-direction:column;}#TRANSPARENCY__IMAGE-LINK {width: 250px;height: 40px;text-align: center;outline:none;box-shadow: 0 4px 7px rgba(0, 0, 0, 0.5);border-radius: 20px;border:none;}p{line-height: 18px;background-color: rgba(0, 0, 0, 0.95);font-family:monospace;padding: 10px;border-radius: 20px;color: white;margin:0;}`,
     });
 
     const tip = document.createElement("p");
