@@ -29,7 +29,9 @@ export default function createBrightnessTweaker(state, { overlayDarkenerEl, over
         eventMethod: (_) => {
             window.localStorage.setItem("brghtns", state.brightnessTweaker.level);
             createAlert({
-                text: `Brightness level updated! Now it is at level ${state.brightnessTweaker.level}.`,
+                text: `Brightness level updated! Now it is at level <b>${state.brightnessTweaker.level}</b>.`,
+                containsHTML: true,
+                timeout: 1000 * 3, // 3 seconds
             });
 
             removeBrightnessTweaker(state);

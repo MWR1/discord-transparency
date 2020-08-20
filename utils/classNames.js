@@ -3,10 +3,7 @@ export const overlayBar =
     overlayDarkener = "app-1q1i1E",
     emojiPicker = "contentWrapper-2txmjs",
     reactionsPicker = "emojiPicker-3PwZFl",
-    scrollBar =
-        "theme-dark .scrollerThemed-2oenus.themedWithTrack-q8E3vB>.scroller-2FKFPG::-webkit-scrollbar-thumb",
-    scrollBarContainer =
-        "theme-dark .scrollerThemed-2oenus.themedWithTrack-q8E3vB>.scroller-2FKFPG::-webkit-scrollbar-track-piece",
+    downloadAttachment = "attachment-33OFj0",
     friendsTab = "theme-dark .container-1D34oG",
     codeBlocks = "code.inline, .markup-2BOw-j code, code",
     messagePopouts = "wrapper-2aW0bm",

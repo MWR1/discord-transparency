@@ -9,6 +9,13 @@ import text from "../utils/keyboardShortcutsText";
 import disableTheme from "./functions/disableTheme";
 
 (function () {
+    if (!document.documentElement.classList.contains("theme-dark"))
+        return createAlert({
+            text:
+                "Sadly, this script, for now, only works by changing your theme to Dark Mode in the Appearence menu. Please do that, and refresh (Ctrl + R).",
+            timeout: 1000 * 20, // 20 seconds
+        });
+
     createLocalStorage();
 
     const state = {
@@ -43,8 +50,8 @@ import disableTheme from "./functions/disableTheme";
     //appending the stylesheet to page, and remove if it already exists (defined in createStyleSheet function definition)
     document.head.appendChild(sheet);
 
-    //initial keyboard shortcuts notification
-    createAlert({ text, containsHTML: true });
+    //initial keyboard shortcuts notification (10 seconds)
+    createAlert({ text, timeout: 1000 * 10, containsHTML: true });
 
     //keydown manager
     window.onkeydown = (e) => {

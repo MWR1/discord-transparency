@@ -45,7 +45,7 @@ export function createStyleSheet({ parent, id = "", isMainStyleSheet, CSS }) {
     return sheet;
 }
 
-export function createAlert({ text, containsHTML = false }) {
+export function createAlert({ text, timeout, containsHTML = false }) {
     const alertElement = document.createElement("div");
     alertElement.className = "TRANSPARENCY__ALERT";
     alertElement[containsHTML ? "innerHTML" : "textContent"] = text;
@@ -55,5 +55,5 @@ export function createAlert({ text, containsHTML = false }) {
     setTimeout(() => {
         alertElement.classList.add("TRANSPARENCY__ALERT--INACTIVE");
         setTimeout(() => alertElement.remove(), 1000);
-    }, 10000);
+    }, timeout);
 }
