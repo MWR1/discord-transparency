@@ -8,8 +8,6 @@ This is a script for changing the background color of Discord to <b>any image</b
 
 -   <b> This is against Discord's Terms Of Service, specifically, any client-side modification is forbidden. </b> <br>
     However, Discord will not actively look out for such users, unless you are reported, but this script has measures against that.
--   <b>This script only works with the "Dark Mode" option enabled in the Appearence setting.</b> <br>
-    Support for white theme coming up soon.
 -   <b> With future updates to Discord, some elements' names might change, which will probably cause certain elements to appear not transparent anymore. </b> <br>
     I will try to mitigate those errors as soon as possible, but it will happen at some point.
 -   <b>This does not yet work with the web application, only with the desktop one. </b> <br>
@@ -52,7 +50,8 @@ There are THREE ways of implementing this script.
 -   Now, after the window opened, in there paste this line: `npx asar extract core.asar ./unpacked`. Wait for a bit, then a folder called "unpacked" should appear
 -   Open the folder "unpacked", then open the folder "app", and locate <b>"mainScreen.js"</b>
 -   Open "mainScreen.js" with Notepad, or any other text editor. We'll go with Notepad
--   Go at the very end of the file. In there paste the code located in <b>`startup-with-discord.js`</b>. You can find the file by scrolling up, it's in the files section in this page
+-   Search for the text `did-finish-load`. In Notepad, press Ctrl + F, and in there type `did-finish-load`, and check the "Down" checkbox under the "Direction" label, then press "Find Next"
+-   Paste the code where the red arrow points at. The code is located in <b>`startup-with-discord.js`</b> from above, in the files section ![ss](https://i.imgur.com/8yC4z62.png)
 -   Press Ctrl + S to save the file, then close it. Also close the folder "unpacked". Afterwards, go back to the terminal (in our case PowerShell) opened recently
 -   Inside the terminal, paste this line: `npx asar pack unpacked core.asar`, and then wait. When it's done, you can close everything, and restart Discord. That's it
 
