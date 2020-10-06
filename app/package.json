@@ -14,7 +14,7 @@
         "js-base64": "^2.5.2"
     },
     "devDependencies": {
-        "electron": "^8.1.0",
+        "electron": "^8.5.2",
         "electron-packager": "^14.2.1"
     }
 }
