@@ -1,4 +1,4 @@
-`.theme-dark {
+`.theme-dark, .theme-light {
     --background-primary:transparent;
     --background-secondary:transparent;
     --background-tertiary:transparent;
@@ -6,9 +6,13 @@
     --deprecated-panel-background:transparent;
     --background-secondary-alt:transparent;
     --scrollbar-auto-track:transparent;
-    --scrollbar-auto-thumb:rgba(255,255,255,0.3);
 }
-
+.theme-dark {
+    --scrollbar-auto-thumb:rgba(255,255,255,0.3);   
+}
+.theme-light {
+    --scrollbar-auto-thumb:rgba(0,0,0,0.6);
+}
 #app-mount {
     background:url(${backgroundImageURL}) center center no-repeat;
     background-size:cover;
@@ -22,16 +26,12 @@
     background-color: ${localBrightness};
 } 
 
-${codeBlocks} {
-    background-color:#2f3136; 
-}
-
 .${friendsTab}{
     background-color:transparent !important;
 }
 
-.${downloadAttachment}, .${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
-    background-color:rgba(0,0,0,0.7) !important;
+.${retryConnectionOverlay}, .${emojiInfo}, .${userInfoModal}, .${quickSwitcher}, .${codeBlocks}, .${downloadAttachment}, .${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
+    background-color:${state.isDarkTheme ? `rgba(0,0,0,0.7)` : `rgba(255,255,255,0.85)`} !important;
 }
 
 div[class=${blockedMessages}]:not(.${allMessages}) {

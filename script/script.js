@@ -5,64 +5,66 @@ import { createStyleSheet, createAlert } from "../utils/createElement";
 import mainCSS from "../utils/styling";
 
 import { overlayBar, overlayDarkener } from "../utils/classNames";
-import text from "../utils/keyboardShortcutsText";
+import { keyboardShortcutsText, sidebarDarkThemeAlertText } from "../utils/texts";
 import disableTheme from "./functions/disableTheme";
 
 (function () {
-    if (!document.documentElement.classList.contains("theme-dark"))
-        return createAlert({
-            text:
-                "Sadly, this script, for now, only works by changing your theme to Dark Mode in the Appearence menu. Please do that, and refresh (Ctrl + R).",
-            timeout: 1000 * 20, // 20 seconds
+  createLocalStorage();
+  const state = {
+    backgroundChangingInput: {
+      active: false,
+      iframeButton: null,
+
+      set: (property, value) => {
+        state.backgroundChangingInput[property] = value;
+        return state.backgroundChangingInput; // for chaining
+      },
+    },
+
+    brightnessTweaker: {
+      active: false,
+      level: window.localStorage.getItem("brghtns") || "9",
+      slider: null,
+      saveButton: null,
+      slideBrightnessIframe: null,
+
+      set: (property, value) => {
+        state.brightnessTweaker[property] = value;
+        return state.brightnessTweaker; // for chaining
+      },
+    },
+    isDarkTheme: document.documentElement.classList.contains("theme-dark"),
+  };
+
+  const overlayDarkenerElement = document.querySelector(`.${overlayDarkener}`);
+  const overlayBarElement = document.querySelector(`.${overlayBar}`);
+  // the bar at the top is also black when the sidebar is black (overlayBarElement)
+  const sidebarIsDarkThemed = !state.isDarkTheme && overlayBarElement.classList.contains("theme-dark");
+  const CSS = mainCSS({ backgroundImageURL: window.localStorage.getItem("bgImg"), state });
+
+  const sheet = createStyleSheet({
+    parent: document,
+    id: "TRANSPARENCY",
+    isMainStyleSheet: true,
+    CSS,
+  });
+
+  document.head.appendChild(sheet);
+
+  //initial keyboard shortcuts notification (10 seconds)
+  createAlert({ text: keyboardShortcutsText, timeout: 1000 * 10, containsHTML: true }).then(() => {
+    if (sidebarIsDarkThemed) createAlert({ text: sidebarDarkThemeAlertText, timeout: 1000 * 10, containsHTML: true });
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.ctrlKey) {
+      if (e.code === "KeyD") disableTheme(state, sheet, overlayBarElement);
+      else if (e.code === "KeyB")
+        createBrightnessTweaker(state, {
+          overlayDarkenerElement,
+          overlayBarElement,
         });
-
-    createLocalStorage();
-
-    const state = {
-        backgroundChangingInput: {
-            active: false,
-            iframe: null,
-        },
-        brightnessTweaker: {
-            active: false,
-            level: window.localStorage.getItem("brghtns") || "9",
-            slider: null,
-            saveButton: null,
-        },
-    };
-
-    //components
-    const overlayDarkenerEl = document.querySelector(`.${overlayDarkener}`);
-    const overlayBarEl = document.querySelector(`.${overlayBar}`);
-    const CSS = mainCSS({
-        backgroundImageURL: window.localStorage.getItem("bgImg"),
-        localBrightness: `rgba(0, 0, 0, 0.${state.brightnessTweaker.level})` || "rgba(0,0,0,0.9)",
-        overlayDarkener,
-        overlayBar,
-    });
-    const sheet = createStyleSheet({
-        parent: document,
-        id: "TRANSPARENCY",
-        isMainStyleSheet: true,
-        CSS,
-    });
-
-    //appending the stylesheet to page, and remove if it already exists (defined in createStyleSheet function definition)
-    document.head.appendChild(sheet);
-
-    //initial keyboard shortcuts notification (10 seconds)
-    createAlert({ text, timeout: 1000 * 10, containsHTML: true });
-
-    //keydown manager
-    window.onkeydown = (e) => {
-        if (e.ctrlKey) {
-            if (e.code === "KeyD") disableTheme(state, sheet, overlayBarEl);
-            else if (e.code === "KeyB")
-                createBrightnessTweaker(state, {
-                    overlayDarkenerEl,
-                    overlayBarEl,
-                });
-            else if (e.altKey) createBackgroundChangingInput(state, sheet);
-        }
-    };
+      else if (e.altKey) createBackgroundChangingInput(state, sheet);
+    }
+  });
 })();
