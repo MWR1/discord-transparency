@@ -1,70 +1,73 @@
-import createLocalStorage from "../utils/createLocalStorage";
-import createBackgroundChangingInput from "./functions/backgroundChangingInput";
-import createBrightnessTweaker from "./functions/brightnessTweaker";
-import { createStyleSheet, createAlert } from "../utils/createElement";
-import mainCSS from "../utils/styling";
+import createLocalStorage from "./actions/createLocalStorage";
+import createAlert from "./utils/createAlert";
+import createMainCSSCode from "./utils/createMainCSSCode";
 
-import { overlayBar, overlayDarkener } from "../utils/classNames";
-import { keyboardShortcutsText, sidebarDarkThemeAlertText } from "../utils/texts";
-import disableTheme from "./functions/disableTheme";
+import { overlayBar, overlayDarkener, sidebarDarkThemeIndicator } from "./utils/classNames";
+import { welcomeBackText, sidebarAlertText } from "./configs/texts.json";
+import toggleTheme from "./actions/toggleTheme";
+import createElement from "./utils/createElement";
+import { welcomeBackDuration, warningDuration } from "./configs/durations.json";
+import removeExistingCodeFootprint from "./utils/removeExistingCodeFootprint";
+import initActionsPanel from "./utils/initActionsPanel";
+import actions from "./actions";
 
 (function () {
   createLocalStorage();
-  const state = {
-    backgroundChangingInput: {
-      active: false,
-      iframeButton: null,
 
-      set: (property, value) => {
-        state.backgroundChangingInput[property] = value;
-        return state.backgroundChangingInput; // for chaining
-      },
-    },
-
-    brightnessTweaker: {
-      active: false,
-      level: window.localStorage.getItem("brghtns") || "9",
-      slider: null,
-      saveButton: null,
-      slideBrightnessIframe: null,
-
-      set: (property, value) => {
-        state.brightnessTweaker[property] = value;
-        return state.brightnessTweaker; // for chaining
-      },
-    },
-    isDarkTheme: document.documentElement.classList.contains("theme-dark"),
-  };
-
-  const overlayDarkenerElement = document.querySelector(`.${overlayDarkener}`);
   const overlayBarElement = document.querySelector(`.${overlayBar}`);
-  // the bar at the top is also black when the sidebar is black (overlayBarElement)
-  const sidebarIsDarkThemed = !state.isDarkTheme && overlayBarElement.classList.contains("theme-dark");
-  const CSS = mainCSS({ backgroundImageURL: window.localStorage.getItem("bgImg"), state });
+  const overlayDarkenerElement = document.querySelector(`.${overlayDarkener}`);
 
-  const sheet = createStyleSheet({
-    parent: document,
-    id: "TRANSPARENCY",
-    isMainStyleSheet: true,
-    CSS,
+  const isDarkTheme = document.documentElement.classList.contains("theme-dark");
+  let sidebarIsDarkThemed;
+
+  if (overlayBarElement) sidebarIsDarkThemed = !isDarkTheme && overlayBarElement.classList.contains("theme-dark");
+  else {
+    const sidebarDarkThemeIndicatorElement = document.querySelector(`.${sidebarDarkThemeIndicator}`);
+    if (sidebarDarkThemeIndicatorElement)
+      sidebarIsDarkThemed = !isDarkTheme && sidebarDarkThemeIndicatorElement.classList.contains("theme-dark");
+  }
+
+  let brightnessLevel = window.localStorage.getItem("brghtns") || 9;
+
+  const mainCSSCode = createMainCSSCode({
+    backgroundImageURL: window.localStorage.getItem("bgImg") || "",
+    brightnessLevel,
+    isDarkTheme,
   });
 
-  document.head.appendChild(sheet);
+  // removes whatever logic might've been left from applying the script more than once
+  // (e.g. removing stylesheets, event listeners)
+  removeExistingCodeFootprint();
 
-  //initial keyboard shortcuts notification (10 seconds)
-  createAlert({ text: keyboardShortcutsText, timeout: 1000 * 10, containsHTML: true }).then(() => {
-    if (sidebarIsDarkThemed) createAlert({ text: sidebarDarkThemeAlertText, timeout: 1000 * 10, containsHTML: true });
+  const mainStylesheet = createElement("style");
+  mainStylesheet.setProperty("id", "TRANSPARENCY").setProperty("innerHTML", mainCSSCode).appendTo(document.head);
+
+  const togglePanel = initActionsPanel({
+    actions,
+    props: {
+      isDarkTheme,
+      brightnessLevel,
+      mainStylesheet: mainStylesheet.getDOMElement(),
+      overlayDarkenerElement,
+      overlayBarElement,
+    },
   });
 
-  window.addEventListener("keydown", (e) => {
-    if (e.ctrlKey) {
-      if (e.code === "KeyD") disableTheme(state, sheet, overlayBarElement);
-      else if (e.code === "KeyB")
-        createBrightnessTweaker(state, {
-          overlayDarkenerElement,
+  createAlert({ text: welcomeBackText, timeout: welcomeBackDuration, containsHTML: true }).then(() => {
+    if (sidebarIsDarkThemed) createAlert({ text: sidebarAlertText, timeout: warningDuration, containsHTML: true });
+  });
+
+  window.onkeydown = (e) => {
+    if (e.ctrlKey)
+      if (e.shiftKey && e.code === "KeyX") togglePanel();
+      else if (e.code === "KeyD") {
+        e.preventDefault(); // prevents the bookmark shortcut on Chrome
+        toggleTheme({
+          mainStylesheet: mainStylesheet.getDOMElement(),
+          isDarkTheme,
+          brightnessLevel,
           overlayBarElement,
         });
-      else if (e.altKey) createBackgroundChangingInput(state, sheet);
-    }
-  });
+      }
+  };
 })();

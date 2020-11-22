@@ -14,7 +14,7 @@
     --scrollbar-auto-thumb:rgba(0,0,0,0.6);
 }
 #app-mount {
-    background:url(${backgroundImageURL}) center center no-repeat;
+    background:url(${props.backgroundImageURL}) center center no-repeat;
     background-size:cover;
 }
 .${overlayBar}{
@@ -30,31 +30,28 @@
     background-color:transparent !important;
 }
 
-.${retryConnectionOverlay}, .${emojiInfo}, .${userInfoModal}, .${quickSwitcher}, .${codeBlocks}, .${downloadAttachment}, .${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
-    background-color:${state.isDarkTheme ? `rgba(0,0,0,0.7)` : `rgba(255,255,255,0.85)`} !important;
+.${clearAfterDropdown}, .${rolesContainerManualAdd}, .${retryConnectionOverlay}, .${emojiInfo}, .${userInfoModal}, .${quickSwitcher}, .${codeBlocks}, .${downloadAttachment}, .${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
+    background-color:${props.isDarkTheme ? `rgba(0,0,0,0.7)` : `rgba(255,255,255,0.85)`} !important;
 }
 
 div[class=${blockedMessages}]:not(.${allMessages}) {
     display: none;
 }
 
-#TRANSPARENCY__SLIDE-BRIGHTNESS-IFRAME {
-    position:absolute;
+.TRANSPARENCY__ACTIONS {
+    width: 30%;
     height: 100%;
-    right:0;
-    top:0;
-    bottom:0;
-    margin:auto;
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    right: 0;
+    z-index: 200;
+    backdrop-filter: blur(8px);
+    transform: translateX(100%);
+    transition: transform 500ms ease;
 }
 
-#TRANSPARENCY__BUTTON-IFRAME {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 200;
-    width: 400px;
-    height: 215px;
+.TRANSPARENCY__ACTIONS--SLIDE-IN {
+    transform: translateX(0);
 }
 
 .TRANSPARENCY__ALERT { 
@@ -66,20 +63,30 @@ div[class=${blockedMessages}]:not(.${allMessages}) {
     padding: 20px;
     font-size: 14px;
     width: fit-content;
-    background-color: #faa61a;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    color: white;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     z-index: 10000;
-    box-shadow: rgba(255, 255, 255, 0.8) -1px 5px 11px 0px;
+    box-shadow: 0px 13px 10px -5px rgba(0,0,0,0.5);
     transition: transform 500ms ease;
-    animation: TRANSPARENCY__SLIDE 500ms ease;
+    animation: TRANSPARENCY__ALERT-SLIDE 500ms ease;
 }
 
-@keyframes TRANSPARENCY__SLIDE {
+@keyframes TRANSPARENCY__ALERT-SLIDE {
     from { transform: translateY(-130%); }
     to { transform: translateY(0) }
 }
 
 .TRANSPARENCY__ALERT--INACTIVE {
     transform: translateY(-130%);
-}`;
+}
+
+.TRANSPARENCY__FADE-IN {
+    animation: fadeIn 500ms ease forwards;
+}
+@keyframes fadeIn { 
+    to { opacity: 1; }
+}
+`;

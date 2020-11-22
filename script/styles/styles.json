@@ -1,0 +1,5 @@
+{
+    "actionsPanelCSSCode": "body {padding-top: 20px;font-family: system-ui;}.TRANSPARENCY__ACTION {width: calc(100% - 40px);height: 200px;background-color: rgba(0,0,0,0.5);margin: 20px;line-height: 200px;color: white;cursor: pointer;display: flex;flex-direction: column;justify-content: center;align-items: center;transition: background-color 300ms linear;}.TRANSPARENCY__ACTION--ACTIVE {background-color: rgba(0, 0, 0, 0.8);}",
+    "backgroundChangerCSSCode": "#TRANSPARENCY__IMAGE-LINK {text-align:center;height: 40px;width: 300px;margin-top: 10px;border: 0;background-color: rgba(255,255,255,0.1);border-radius: 50px;color: white;font-family: system-ui;}p{font-size:11px;line-height: 20px;padding: 10px;border-radius: 20px;color: white;margin: 0;font-family: system-ui;width: 310px;margin-top: 10px;opacity: 0.8;}",
+    "brightnessTweakerCSSCode": "#TRANSPARENCY__SLIDE-BRIGHTNESS {width:300px;}#TRANSPARENCY__SAVE-BRIGHTNESS {height: 40px;width: 150px;margin-top: 10px;border: 0;background-color: rgba(255,255,255,0.1);border-radius: 50px;color: white;font-family: system-ui;cursor:pointer;}"
+}
