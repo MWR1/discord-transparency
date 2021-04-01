@@ -8,5 +8,5 @@ export const backgroundChangerTipText =
 
 // Functions
 export function newErrorAlertText(errorMessage: string): string {
-  return `⚠ Oh no, there's been an error. If you see this, join the support server, and report the error. [[${errorMessage}]]`;
+  return `🛑 Oh no, there's been an error. If you see this, join the support server, and report the error. [[${errorMessage}]]`;
 }

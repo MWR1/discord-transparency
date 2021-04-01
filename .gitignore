@@ -4,3 +4,4 @@ dist
 .eslintrc.json
 .eslintignore
 .prettierrc
+app
