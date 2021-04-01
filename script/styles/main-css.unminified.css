@@ -14,7 +14,7 @@
     --scrollbar-auto-thumb:rgba(0,0,0,0.6);
 }
 #app-mount {
-    background:url(${props.backgroundImageURL}) center center no-repeat;
+    background:url(${backgroundImageURL}) center center no-repeat;
     background-size:cover;
 }
 .${overlayBar}{
@@ -30,40 +30,45 @@
     background-color:transparent !important;
 }
 
-.${clearAfterDropdown}, .${rolesContainerManualAdd}, .${retryConnectionOverlay}, .${emojiInfo}, .${userInfoModal}, .${quickSwitcher}, .${codeBlocks}, .${downloadAttachment}, .${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, .${searchResults}, .${embedBackground}, .${invites} {
-    background-color:${props.isDarkTheme ? `rgba(0,0,0,0.7)` : `rgba(255,255,255,0.85)`} !important;
+.${clearAfterDropdown}, .${rolesContainerManualAdd}, .${retryConnectionOverlay},
+.${emojiInfo}, .${userInfoModal}, .${quickSwitcher}, .${codeBlocks}, .${downloadAttachment},
+.${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, 
+.${searchResults}, .${embedBackground}, .${invites} {
+    background-color:${variousElementsBackground} !important;
 }
 
 div[class=${blockedMessages}]:not(.${allMessages}) {
     display: none;
 }
 
-.TRANSPARENCY__ACTIONS {
-    width: 30%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.3);
-    position: absolute;
-    right: 0;
-    z-index: 200;
-    backdrop-filter: blur(8px);
-    transform: translateX(100%);
-    transition: transform 500ms ease;
+#TRANSPARENCY__ACTIONS {
+  font-family: "Whitney", "Helvetica Neue", "Helvetica", monospace, "Arial", sans-serif;
+  width: 30%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  position: absolute;
+  right: 0;
+  z-index: 200;
+  backdrop-filter: blur(8px);
+  transform: translateX(100%);
+  transition: transform 500ms ease;
 }
 
 .TRANSPARENCY__ACTIONS--SLIDE-IN {
-    transform: translateX(0);
+    transform: translateX(0) !important;
 }
 
 .TRANSPARENCY__ALERT { 
     position: absolute;
-    top: 0px;
     left: 0px;
     right: 0px;
     margin: auto;
     padding: 20px;
     font-size: 14px;
     width: fit-content;
-    background-color: rgba(0,0,0,0.3);
+    width: -moz-fit-content;
+    max-width: 450px;
+    background-color: rgba(0,0,0,0.6);
     backdrop-filter: blur(8px);
     color: white;
     border-bottom-right-radius: 20px;

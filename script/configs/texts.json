@@ -1,5 +1,0 @@
-{
-    "welcomeBackText": "Welcome! <br><br>To toggle the actions panel, press <b>CTRL + SHIFT + X</b><br>To toggle the theme, press <b>CTRL + D</b>",
-    "sidebarAlertText": "<b>🛑 Warning</b><br><br>Your sidebar is currently dark themed.<br>For proper text visibility, disable its dark theme in Settings > Appearance. <u>No need to refresh</u>.",
-    "backgroundChangerTipText": "🛑 The image you want as your background must be sent as a message on Discord. You will have to click on the image, press on <Open original>, and copy the link from there."
-}
