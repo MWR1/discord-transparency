@@ -33,9 +33,16 @@ This is a script that allows you to add a background image to Discord.
 
 # INSTALLATION
 
-There are TWO ways (for now) of implementing this script.
+There are THREE ways of implementing this script.
 
-## 1. Copy pasting the script inside the developer console
+## 1. Using the installer
+
+- [Download the installer (look below "Assets")](https://github.com/MWR1/DTInstaller/releases)
+- Enjoy!<br>
+  ❗ If you're on Windows, make sure not to move the .exe file outside the folder it's in, otherwise it won't work anymore (this behavior is going to be fixed in the future).
+  ❗ If you're on Linux, you have to run the installer through a terminal (also going to be fixed in the future).
+
+## 2. Copy pasting the script inside the developer console
 
 - Press `CTRL + SHIFT + I` inside Discord. A tab should open to the side
 - Navigate to the `Console` tab, near the top right corner
@@ -44,7 +51,7 @@ There are TWO ways (for now) of implementing this script.
   ❗ While this is the easier way to set it up, each time Discord launches, you will have to follow most of the same steps again, because the script will be deleted with each relaunch of the Discord client. <b>But you can do this:</b>
   - While in the Console tab, you can just press the `ARROW UP KEY`, then `ENTER`, and the script will appear, without having to copy and paste it again from this page.
 
-## 2. Launching the script with Discord
+## 3. Launching the script with Discord
 
 ❗ This is a little bit harder than the copy and pasting technique, but you won't have to open the developer console again and again, each time discord launches.
 
@@ -62,22 +69,10 @@ There are TWO ways (for now) of implementing this script.
 - Paste the code where the red arrow points at. The code is located in the `main` folder inside the <b>`startup-with-discord.js`</b> file from above, in the files section ![ss](https://i.imgur.com/8yC4z62.png)
 - Press Ctrl + S to save the file, then close it. Also close the folder "unpacked". Afterwards, go back to the terminal (in our case PowerShell) opened recently
 - Inside the terminal, paste this line: `npx asar pack unpacked core.asar`, and then wait. When it's done (you can see a new line appearing in the terminal) you can close everything, and restart Discord
-<!--
-
-## 3. Using the installer (NEW)
-
-❗ Please note that the installer is in a very early release and it is prone to bugs, works only with the Discord Canary, and only on Windows.
-
-- Go to the <b>Releases</b> tab
-- Press on "Assets"
-- Download the first file (that has the extension .rar)
-- Extract it, then open the folder
-- Inside the folder should be an `.exe` file. If you want it on your desktop, create a shortcut by `right click` -> `create shortcut`, then move that shortcut on your desktop. <b>Do not move the `.exe` file directly, because it will not work anymore!</b>
-- That's it, enjoy! -->
 
 ## Planned updates in the future
 
-- Rewrite the installer, make it more performant, thoroughly cross-platform (is in the works, and the old installer has been removed from this page because it's now obsolete)
+- Create a workflow that's easier to maintain
 
 ## Contact
 

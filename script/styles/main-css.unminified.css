@@ -32,7 +32,7 @@
 
 .${clearAfterDropdown}, .${rolesContainerManualAdd}, .${retryConnectionOverlay},
 .${emojiInfo}, .${userInfoModal}, .${quickSwitcher}, .${codeBlocks}, .${downloadAttachment},
-.${inboxPopup}, .${emojiPicker}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, 
+.${inboxPopup}, .${emojiPicker}, .${reactionsBackground}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessages}, 
 .${searchResults}, .${embedBackground}, .${invites} {
     background-color:${variousElementsBackground} !important;
 }

@@ -6,6 +6,7 @@ export const overlayBar =
 export const overlayDarkener = "app-1q1i1E";
 export const emojiPicker = "contentWrapper-SvZHNd";
 export const reactionsPicker = "emojiPicker-3PwZFl";
+export const reactionsBackground = "reaction-1hd86g";
 export const downloadAttachment = "attachment-33OFj0";
 export const friendsTab = "container-1D34oG";
 export const codeBlocks = "code.inline, .markup-2BOw-j code, code";
