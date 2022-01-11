@@ -3,7 +3,7 @@
  */
 export const overlayBar =
   "typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ.horizontalReverse-2QssvL.flex-3BkGQD.directionRowReverse-HZatnx.justifyStart-2Mwniq.alignStretch-Uwowzr";
-export const overlayDarkener = "app-2CXKsg";
+export const overlayDarkener = "app-3xd6d0";
 export const sidebarDarkThemeIndicator = "bg-1QIAus";
 
 export const threadsPopup = "container-18GwIk";

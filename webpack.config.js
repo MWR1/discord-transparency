@@ -14,6 +14,7 @@ module.exports = [
     },
     resolve: {
       extensions: [".ts", ".js"],
+      preferRelative: true,
     },
     output: {
       path: resolve(__dirname, "./dist/script"),
