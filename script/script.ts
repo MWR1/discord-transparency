@@ -1,16 +1,16 @@
 import { BrightnessLevel, DOMElement } from "../@types";
-import createLocalStorage from "./utils/createLocalStorage";
-import createAlert from "./utils/createAlert";
-import createMainCSSCode from "./utils/createMainCSSCode";
-import createElement from "./utils/createElement";
-import { overlayBar, overlayDarkener, sidebarDarkThemeIndicator } from "./utils/classNames";
-import { welcomeText, sidebarAlertText, newErrorAlertText } from "./configs/texts";
-import { welcomeDuration, warningDuration } from "./configs/durations";
-import toggleTheme from "./actions/toggleTheme";
-import getElement from "./utils/getElement";
-import removeExistingCodeFootprint from "./removeExistingCodeFootprint";
-import toggleActionsPanel from "./actionsPanel";
 import actions from "./actions";
+import toggleTheme from "./actions/toggleTheme";
+import toggleActionsPanel from "./actionsPanel";
+import { warningDuration, welcomeDuration } from "./configs/durations";
+import { newErrorAlertText, sidebarAlertText, welcomeText } from "./configs/texts";
+import removeExistingCodeFootprint from "./removeExistingCodeFootprint";
+import { overlayBar, overlayDarkener, sidebarDarkThemeIndicator } from "./utils/classNames";
+import createAlert from "./utils/createAlert";
+import createElement from "./utils/createElement";
+import createLocalStorage from "./utils/createLocalStorage";
+import createMainCSSCode from "./utils/createMainCSSCode";
+import getElement from "./utils/getElement";
 
 (function (): void {
   createLocalStorage();
@@ -68,7 +68,7 @@ import actions from "./actions";
             // This type assertion is required because we've already seen whether this element is null or not (the alert). If it is,
             // everything will break so we don't need to check for null anymore lol
             overlayDarkenerElement: overlayDarkenerElement as HTMLElement,
-            overlayBarElement: overlayBarElement,
+            overlayBarElement,
           },
         });
       } catch (error) {

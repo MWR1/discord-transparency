@@ -39,7 +39,7 @@ There are THREE ways of implementing this script.
 
 - [Download the installer (look below "Assets")](https://github.com/MWR1/DTInstaller/releases)
 - Enjoy!<br>
-  ❗ If you're on Windows, make sure not to move the .exe file outside the folder it's in, otherwise it won't work anymore (this behavior is going to be fixed in the future).
+  ❗ If you're on Windows, make sure not to move the .exe file outside the folder it's in, otherwise it won't work anymore (this behavior is going to be fixed in the future).<br>
   ❗ If you're on Linux, you have to run the installer through a terminal (also going to be fixed in the future).
 
 ## 2. Copy pasting the script inside the developer console
