@@ -44,6 +44,7 @@ There are THREE ways of implementing this script.
 
 ## 2. Copy pasting the script inside the developer console
 
+- Enable Discord's developer tools (there are tutorials on how to do that)
 - Press `CTRL + SHIFT + I` inside Discord. A tab should open to the side
 - Navigate to the `Console` tab, near the top right corner
 - Copy the script from above, from the files section, in this page, in the folder `main`, from inside the file <b>`manual-copy-pasting.js`</b>
