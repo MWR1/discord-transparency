@@ -26,16 +26,15 @@
     background-color: ${localBrightness};
 } 
 
-.${friendsTab}, .${nitroTab}, .${homeTab} {
+.${friendsTab},.${nitroTab}{
     background-color:transparent !important;
 }
 
 .${activeThreadsChannelHoverPopup}, .${threadsPopup}, .${clearAfterDropdown},
 .${rolesContainerManualAdd}, .${retryConnectionOverlay}, .${emojiInfo},
 .${userInfoModal}, .${quickSwitcher}, .${codeBlocks}, .${downloadAttachment},
-.${inboxPopup}, .${inboxUnreadPopup}, .${emojiGIFStickerPickers}, .${reactionsBackground},
-.${reactionsPicker}, .${messageOptionsHoverPopout}, .${pinnedMessagesPopup},
-.${searchResultsPane}, .${threadPane}, .${embedBackground}, .${invites}, .${optionPopout} {
+.${inboxPopup}, .${emojiGIFStickerPickers}, .${reactionsBackground}, .${reactionsPicker}, .${messagePopouts}, .${pinnedMessagesPopup}, 
+.${searchResultsPane}, .${threadPane}, .${embedBackground}, .${invites} {
     background-color:${variousElementsBackground} !important;
 }
 
