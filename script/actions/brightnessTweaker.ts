@@ -1,12 +1,12 @@
 import createAlert from "../utils/createAlert";
 import createElement from "../utils/createElement";
 
-import { brightnessLevelUpdateDuration } from "../configs/durations";
 import { Action, BrightnessLevel, DOMElement } from "../../@types";
+import { brightnessLevelUpdateDuration } from "../configs/durations";
 
 /**
- * Tweaks the brightness of the background picture by changing the opacity of an HTML element that stays on top
- * of the background image.
+ * Tweaks the brightness of the background picture by changing the opacity of an
+ * HTML element that stays on top of the background image.
  */
 
 interface UpdateBrightnessParams {

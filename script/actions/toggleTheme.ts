@@ -8,9 +8,9 @@ interface ToggleThemeParams {
 }
 
 /**
- * Toggles the appearance between the default look of Discord and the transparency theme
+ * Toggles the appearance between the default look of Discord and the transparency theme.
  * @param {ToggleThemeParams} toggleThemeParams
- * @param {boolean} toggleThemeParams.isDarkTheme - allows to style elements accordingly, depending on the theme (white/dark)
+ * @param {boolean} toggleThemeParams.isDarkTheme - allows styling elements depending on the theme (white/dark)
  * @param {number} toggleThemeParams.brightnessLevel - the brightness level chosen
  * @param {HTMLElement} toggleThemeParams.mainStylesheet - the stylesheet that styles everything
  * @param {DOMElement} toggleThemeParams.overlayBarElement - the bar at the very top of the app. It has to be styled individually because it just doesn't feel like cooperating

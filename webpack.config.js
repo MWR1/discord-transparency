@@ -17,8 +17,8 @@ module.exports = [
       preferRelative: true,
     },
     output: {
-      path: resolve(__dirname, "./dist/script"),
-      filename: "script.min.js",
+      path: resolve(__dirname, "./main"),
+      filename: "manual-copy-pasting.js",
     },
     optimization: {
       minimize: true,

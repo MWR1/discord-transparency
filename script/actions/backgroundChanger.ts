@@ -1,7 +1,7 @@
-import createElement from "../utils/createElement";
+import { Action } from "../../@types";
 import { backgroundChangerTipText } from "../configs/texts";
 import { newBackgroundImageCSSCode } from "../styles";
-import { Action } from "../../@types";
+import createElement from "../utils/createElement";
 
 /**
  * Changes the background image of an existing HTML element that sits behind every UI element.
@@ -35,7 +35,7 @@ const backgroundChangerAction: Action = {
       },
     });
 
-    // The background changer tip below the input
+    // The background changer tip below the input.
     createElement<HTMLParagraphElement>({
       elementName: "p",
       appendTo: parentBox,

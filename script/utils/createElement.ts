@@ -7,7 +7,7 @@ interface CreateElementParams<ElementType> {
 }
 
 /**
- * Creates an element. It's basically a wrapper for document#createElement, nothing fancy here
+ * Creates an element. It's basically a wrapper for document#createElement, nothing fancy here.
  * @param {CreateElementParams} element
  * @param {string} element.elementName - the name of the element
  * @param {HTMLElement} element.appendTo - the parent element to append this new element to
@@ -26,5 +26,5 @@ export default function createElement<ElementType>({
   for (const [property, value] of Object.entries(htmlProps)) element[property] = value;
   appendTo.appendChild(element);
 
-  return (element as unknown) as ElementType;
+  return element as unknown as ElementType;
 }

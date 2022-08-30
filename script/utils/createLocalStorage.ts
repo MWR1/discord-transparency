@@ -3,7 +3,8 @@ import createElement from "./createElement";
 
 /**
  * Creates a local storage object, by creating an invisible iframe.
- * The Discord client deletes the localStorage object, and we use it to store things such as the brightness level.
+ * The Discord client deletes the localStorage object, and we use it to
+ * store things such as the brightness level.
  */
 
 export default function createLocalStorage(): void {

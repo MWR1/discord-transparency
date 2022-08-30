@@ -1,6 +1,6 @@
-import createElement from "./utils/createElement";
+import { Action, ActionProps, DOMElement } from "../@types";
 import { actionsPanelCSSCode } from "./styles";
-import { DOMElement, ActionProps, Action } from "../@types";
+import createElement from "./utils/createElement";
 
 interface ActivateActionParams {
   action: Action;
@@ -9,7 +9,7 @@ interface ActivateActionParams {
 }
 
 /**
- * Toggles an action, such as toggling the brightness tweaker, or changing the background image
+ * Toggles an action, such as toggling the brightness tweaker, or changing the background image.
  * @param {ActivateActionParams} activateActionParams
  * @param {Action} activateActionParams.action - the action to activate
  * @param {HTMLDivElement} activateActionParams.actionToggler - the rectangle in the actions panel, that when clicked, reveals the action
