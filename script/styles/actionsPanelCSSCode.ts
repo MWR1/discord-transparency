@@ -1,4 +1,13 @@
-.TRANSPARENCY__ACTION {
+import {
+  actionActiveClassName,
+  actionClassName,
+  actionInputClassName,
+  actionLevelIndicatorClassName,
+  actionWarningClassName,
+  saveLevelClassName,
+} from "../configs/identifiers";
+
+export default `.${actionClassName} {
   min-height: 200px;
   background-color: rgba(0, 0, 0, 0.5);
   margin: 10px;
@@ -11,12 +20,12 @@
   transition: background-color 300ms linear;
 }
 
-.TRANSPARENCY__ACTION--ACTIVE {
+.${actionActiveClassName} {
   background-color: rgba(0, 0, 0, 0.8);
   cursor: initial;
 }
 
-.TRANSPARENCY__ACTION-INPUT {
+.${actionInputClassName} {
   box-sizing: border-box;
   text-align: center;
   height: 40px;
@@ -28,19 +37,19 @@
   color: white;
 }
 
-.TRANSPARENCY__ACTION-INPUT:focus,
-#TRANSPARENCY__ACTION-SAVE-BRIGHTNESS:focus {
+.${actionInputClassName}:focus,
+.${saveLevelClassName}:focus {
   outline: none;
   border: 2px solid dodgerblue;
 }
 
-#TRANSPARENCY__ACTION-BRIGHTNESS-LEVEL {
+.${actionLevelIndicatorClassName} {
   margin: 0;
   opacity: 0.8;
   text-align: center;
 }
 
-#TRANSPARENCY__ACTION-WARNING {
+.${actionWarningClassName} {
   font-size: 11px;
   line-height: 20px;
   padding: 10px;
@@ -50,7 +59,7 @@
   opacity: 0.8;
 }
 
-#TRANSPARENCY__ACTION-SAVE-BRIGHTNESS {
+.${saveLevelClassName} {
   height: 40px;
   padding: 0 15px;
   max-width: 300px;
@@ -61,3 +70,4 @@
   color: white;
   cursor: pointer;
 }
+`;

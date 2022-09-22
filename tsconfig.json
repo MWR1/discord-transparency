@@ -6,10 +6,8 @@
     "strictNullChecks": true,
     "resolveJsonModule": true,
     "moduleResolution": "node",
-    "outDir": "./dist/script.min.js", 
     "types": ["node"],
   },
-  "exclude": ["node_modules", "dist", "app"],
   "files": ["./script/script.ts"],
   "compileOnSave": true
 }

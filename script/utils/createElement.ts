@@ -1,4 +1,4 @@
-import { KeysIn } from "../../@types";
+import { KeysIn } from "../../types";
 
 interface CreateElementParams<ElementType> {
   elementName: string;
@@ -15,13 +15,13 @@ interface CreateElementParams<ElementType> {
  * @returns {ElementType} a generic HTML element
  */
 
-export default function createElement<ElementType>({
+export default function createElement<ElementType extends HTMLElement>({
   elementName,
   appendTo,
   htmlProps,
 }: CreateElementParams<ElementType>): ElementType {
-  type IndexedHTMLElement = HTMLElement & { [key: string]: unknown };
-  const element: IndexedHTMLElement = document.createElement(elementName) as IndexedHTMLElement;
+  type HTMLElementWithIndexSignature = HTMLElement & { [key: string]: unknown };
+  const element = document.createElement(elementName) as HTMLElementWithIndexSignature;
 
   for (const [property, value] of Object.entries(htmlProps)) element[property] = value;
   appendTo.appendChild(element);
