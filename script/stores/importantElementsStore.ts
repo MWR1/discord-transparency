@@ -1,2 +1,2 @@
-import { IimportantElementsStore } from "../../types";
-export default new Map<keyof IimportantElementsStore, IimportantElementsStore[keyof IimportantElementsStore]>();
+import { IImportantElementsStore } from "../../types";
+export default new Map<keyof IImportantElementsStore, IImportantElementsStore[keyof IImportantElementsStore]>();

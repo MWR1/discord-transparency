@@ -42,7 +42,7 @@ ${classNames.overlayDarkener} {
 } 
 
 ${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab}, ${
-    classNames.userInfoModalBox
+    classNames.userInfoOverlayBackground
   } {
   background-color: transparent !important;
 }
