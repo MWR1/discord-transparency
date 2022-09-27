@@ -41,9 +41,7 @@ ${classNames.overlayDarkener} {
   backdrop-filter: blur(${options.blurLevelPixels})
 } 
 
-${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab}, ${
-    classNames.userInfoOverlayBackground
-  } {
+${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab} {
   background-color: transparent !important;
 }
 
