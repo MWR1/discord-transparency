@@ -4,11 +4,12 @@ import {
   actionInputClassName,
   actionLevelIndicatorClassName,
   actionWarningClassName,
+  imageInputPickerClassName,
   saveLevelClassName,
 } from "../configs/identifiers";
 
 export default `.${actionClassName} {
-  min-height: 200px;
+  min-height: 100px;
   background-color: rgba(0, 0, 0, 0.5);
   margin: 10px;
   color: white;
@@ -17,6 +18,7 @@ export default `.${actionClassName} {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 30px 50px;
   transition: background-color 300ms linear;
 }
 
@@ -28,13 +30,19 @@ export default `.${actionClassName} {
 .${actionInputClassName} {
   box-sizing: border-box;
   text-align: center;
-  height: 40px;
-  width: 85%;
-  margin: 10px 0 0;
+  padding: 15px 0;
+  width: 100%;
   border: 0;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50px;
   color: white;
+}
+
+.${imageInputPickerClassName} {
+  padding: 20px 15px !important;
+  cursor: pointer;
+  font-family: var(--font-primary);
+  font-size: smaller;
 }
 
 .${actionInputClassName}:focus,
@@ -50,13 +58,17 @@ export default `.${actionClassName} {
 }
 
 .${actionWarningClassName} {
+  display: none;
   font-size: 11px;
   line-height: 20px;
-  padding: 10px;
   color: white;
   max-width: 310px;
-  margin: 10px 0 0;
+  margin: 20px 0 0;
   opacity: 0.8;
+}
+
+.${actionInputClassName}:focus ~ .${actionWarningClassName} {
+  display: block;
 }
 
 .${saveLevelClassName} {

@@ -13,8 +13,8 @@ export default function initThemeChangeObserver(): boolean {
 
   const observer = new ClassChangeObserver({
     targetElement: document.documentElement,
-    classNameToChange: isDarkTheme ? generalDarkThemeClassName : generalWhiteThemeClassName,
-    classNameToChangeInto: isDarkTheme ? generalWhiteThemeClassName : generalDarkThemeClassName,
+    from: isDarkTheme ? generalDarkThemeClassName : generalWhiteThemeClassName,
+    to: isDarkTheme ? generalWhiteThemeClassName : generalDarkThemeClassName,
   });
 
   try {

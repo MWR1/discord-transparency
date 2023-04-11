@@ -36,12 +36,14 @@ ${classNames.overlayBar} {
   backdrop-filter: blur(${options.blurLevelPixels})
 }
 
-${classNames.overlayDarkener} {
+${classNames.overlayDarkener}, ${classNames.themeEditorPane} {
   background-color: ${options.brightnessLevelRGBA};
   backdrop-filter: blur(${options.blurLevelPixels})
 } 
 
-${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab} {
+${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab}, 
+${classNames.appDirectoryTab}, ${classNames.rolesAndChannelsTab}, ${classNames.discoverServersTab},
+${classNames.discussionsTabTitle} {
   background-color: transparent !important;
 }
 
@@ -49,15 +51,24 @@ ${classNames.activeThreadsChannelHoverPopup}, ${classNames.rolesContainerManualA
 ${classNames.messageOptionsHoverPopout}, ${classNames.searchResultsPane}, ${classNames.emojiGIFStickerPickers},
 ${classNames.retryConnectionOverlay}, ${classNames.clearAfterDropdown}, ${classNames.reactionsBackground},
 ${classNames.embedBackground}, ${classNames.downloadAttachment}, ${classNames.threadPane},
-${classNames.emojiInfo}, ${classNames.invites}, ${classNames.codeBlocks} {
+${classNames.emojiInfo}, ${classNames.invites}, ${classNames.codeBlocks},
+${classNames.stickyRoleManageHeader} {
   background-color: ${options.variousElementsBackground} !important;
 }
 
-${classNames.userInfoModal}, ${classNames.onJoinServerPopout}, ${classNames.inboxPopup},
+${classNames.userInfoModalNonpremium}, ${classNames.onJoinServerPopout}, ${classNames.inboxPopup},
 ${classNames.inboxUnreadPopup}, ${classNames.aboutMeGuildIconTooltip}, ${classNames.optionPopout},
-${classNames.reactionsPicker}, ${classNames.quickSwitcher}, ${classNames.pinnedMessagesPopup},
-${classNames.threadsPopup} {
+${classNames.reactionsPicker}, ${classNames.reactionsPickerHeader}, ${classNames.quickSwitcher},
+${classNames.pinnedMessagesPopup}, ${classNames.threadsPopup}, ${classNames.inboxForYouPopup} {
 background-color: ${options.variousElementsBackgroundMoreOpaque} !important;
+}
+
+${classNames.rolePreviewArea} {
+  align-items: center;
+}
+
+${classNames.stickyRoleManageHeader} {
+  margin-left: -24px;
 }
 
 div[class=${classNames.blockedMessages.slice(1) /* remove dot */}]:not(${classNames.allMessages}) {

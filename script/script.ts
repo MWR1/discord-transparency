@@ -6,9 +6,9 @@ import initActionsPanel from "./initActionsPanel";
 import { alertsCSSCode } from "./styles";
 import createAlert from "./utils/createAlert";
 import createElement from "./utils/createElement";
-import createLocalStorage from "./utils/createLocalStorage";
 import getSidebarThemeState from "./utils/getSidebarThemeState";
 import initImportantElementsStore from "./utils/initImportantElementsStore";
+import initLocalStorage from "./utils/initLocalStorage";
 import initPreferencesStore from "./utils/initPreferencesStore";
 import initThemeChangeObserver from "./utils/initThemeChangeObserver";
 import removeExistingCodeFootprint from "./utils/removeExistingCodeFootprint";
@@ -16,7 +16,7 @@ import removeExistingCodeFootprint from "./utils/removeExistingCodeFootprint";
 (function main(): void {
   removeExistingCodeFootprint();
   // Order of calls matters.
-  if (!createLocalStorage() || !initPreferencesStore() || !initThemeChangeObserver() || !initImportantElementsStore()) {
+  if (!initLocalStorage() || !initPreferencesStore() || !initThemeChangeObserver() || !initImportantElementsStore()) {
     removeExistingCodeFootprint();
     return;
   }

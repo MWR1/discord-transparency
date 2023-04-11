@@ -11,7 +11,14 @@ This is a script that allows you to add a background image to Discord.
 - <b> With future updates to Discord, some elements might not appear properly anymore.</b>
   I will try to mitigate these errors as soon as possible, but they will happen at some point.
 
-## Features
+# How to install it
+
+- [Download the installer (look below "Assets")](https://github.com/MWR1/DTInstaller/releases);
+- Enjoy!<br>
+  ❗ If you're on Windows, make sure not to move the .exe file outside the folder it's in, otherwise it won't work anymore (this behavior is going to be fixed in the future).<br>
+  ❗ If you're on Linux, you have to run the installer through a terminal (also going to be fixed in the future).
+
+# Features
 
 <b>All features of this script can be found by pressing the `CTRL + SHIFT + X` combination. That will bring up a panel with each action you can perform.</b><br>
 
@@ -21,10 +28,10 @@ If you want to be kept up to date with this project and its features, report som
 
 - You can change the background image; <sup>(I mean this is the whole point of the script)</sup>
 
-  ⚠ You have to post the image on Discord first then use the link provided by them. Press on "Open original", and copy the link. Paste that in the text box from the corresponding action, then press Enter.
+  ⚠ If you choose to add a background image via a link: you have to post the image on Discord first then use the link provided by them. Press on "Open original", and copy the link. Paste that in the text box from the corresponding action, then press Enter.
 
 - You can change the brightness of the image, according to your liking. By pressing on the "Save brightness level" button, next time you open Discord, the brightness level will stay the same. Just, make it so the brightness is good enough that you can see the text;
-- You can change how blurry the image is, so you can get that awesome frosty glass effect. As much as I personally dislike white theme, this looks cool with it. Beware, this _could_ have some performance impacts, but most likely minimal;
+- You can change how blurry the image is, so you can get that awesome frosty glass effect. As much as I personally dislike white theme, this looks cool with it. Beware, this _might_ have some performance impacts;
 - You can deactivate the theme by pressing `CTRL + D`. This is especially useful when you want to take a screenshot of a message, or of the entire desktop but you're afraid that someone might report you for using this script. It will disable the theme, making Discord look untouched;
 - Blocked messages don't appear anymore. Your natural curiosity is now safe from any temptations.
 
@@ -32,18 +39,11 @@ If you want to be kept up to date with this project and its features, report som
 
 - If you want to implement the script in such a way that it launches at the same time with Discord, you have to install [NodeJS](https://nodejs.org).
 
-# INSTALLATION
+# Other ways of installing the script
 
 There are <b>THREE</b> ways of implementing this script.
 
-## 1. Using the installer
-
-- [Download the installer (look below "Assets")](https://github.com/MWR1/DTInstaller/releases);
-- Enjoy!<br>
-  ❗ If you're on Windows, make sure not to move the .exe file outside the folder it's in, otherwise it won't work anymore (this behavior is going to be fixed in the future).<br>
-  ❗ If you're on Linux, you have to run the installer through a terminal (also going to be fixed in the future).
-
-## 2. Copy pasting the script inside the developer console
+## 1. Copy pasting the script inside the developer console
 
 - Enable Discord's developer tools:
 
@@ -59,7 +59,7 @@ There are <b>THREE</b> ways of implementing this script.
   ❗ While this is the easier way to set it up, each time Discord launches, you will have to follow most of the same steps again, because the script will be deleted with each relaunch of the Discord client. <b>But you can do this:</b>
   - While in the Console tab, you can just press the `ARROW UP KEY`, then `ENTER`, and the script will appear, without having to copy and paste it again from this page, until a new update comes out.
 
-## 3. Launching the script with Discord
+## 2. Launching the script with Discord
 
 ❗ This is a little bit harder than the copy and pasting technique, but you won't have to open the developer console again and again, each time Discord launches. This entire procedure is automated with
 [the installer. To download it, look below "Assets"](https://github.com/MWR1/DTInstaller/releases).

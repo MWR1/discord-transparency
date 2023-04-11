@@ -23,9 +23,9 @@ module.exports = class PrepareCodeForAsarInjectionPlugin {
 
       console.log("SUCCESS - The final file for injection in Discord's source code has been successfully written");
 
-      // require("child_process")
-      //   .spawn("clip")
-      //   .stdin.end(require("fs").readFileSync("./main/startup-with-discord.js").toString("base64"));
+      require("child_process")
+        .spawn("clip")
+        .stdin.end(require("fs").readFileSync("./main/startup-with-discord.js").toString("base64"));
     });
   }
 };

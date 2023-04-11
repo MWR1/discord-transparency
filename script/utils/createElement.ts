@@ -1,9 +1,7 @@
-import { KeysIn } from "../../types";
-
 interface CreateElementParams<ElementType> {
   elementName: string;
   appendTo: HTMLElement;
-  htmlProps: KeysIn<ElementType>;
+  htmlProps: Partial<ElementType> | { style?: Partial<CSSStyleDeclaration> };
 }
 
 /**
@@ -11,7 +9,7 @@ interface CreateElementParams<ElementType> {
  * @param {CreateElementParams} element
  * @param {string} element.elementName - the name of the element
  * @param {HTMLElement} element.appendTo - the parent element to append this new element to
- * @param {KeysIn<ElementType>} element.htmlProps - the HTML attributes represented as JS objects
+ * @param {Partial<ElementType>} element.htmlProps - the HTML attributes represented as JS objects
  * @returns {ElementType} a generic HTML element
  */
 
@@ -20,11 +18,16 @@ export default function createElement<ElementType extends HTMLElement>({
   appendTo,
   htmlProps,
 }: CreateElementParams<ElementType>): ElementType {
-  type HTMLElementWithIndexSignature = HTMLElement & { [key: string]: unknown };
-  const element = document.createElement(elementName) as HTMLElementWithIndexSignature;
+  const element = document.createElement(elementName) as ElementType;
 
-  for (const [property, value] of Object.entries(htmlProps)) element[property] = value;
+  for (const [property, value] of Object.entries(htmlProps))
+    element[property as keyof ElementType] = value as ElementType[keyof ElementType];
+
+  if (htmlProps.style !== undefined)
+    // TODO: find how to properly type this
+    for (const [property, value] of Object.entries(htmlProps.style as CSSStyleDeclaration))
+      element.style[property as any] = value;
+
   appendTo.appendChild(element);
-
-  return element as unknown as ElementType;
+  return element;
 }

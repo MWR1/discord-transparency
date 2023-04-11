@@ -11,6 +11,7 @@ export const actionsPanelID = `${generalTransparencyID}__ACTIONS-PANEL`;
 export const actionsPanelOverlayID = `${actionsPanelID}-OVERLAY`;
 export const actionsPanelStyleSheetID = `${generalTransparencyID}__ACTIONS_PANEL`;
 export const alertsStyleSheetID = `${generalTransparencyID}__ALERTS-STYLESHEET`;
+export const imageInputPickerHiddenID = `${generalTransparencyID}__IMAGE-INPUT-PICKER`;
 
 export const generalDarkThemeClassName = "theme-dark";
 export const generalWhiteThemeClassName = "theme-light";
@@ -21,6 +22,7 @@ export const actionClassName = `${generalTransparencyID}__ACTION`;
 export const actionActiveClassName = `${actionClassName}--ACTIVE`;
 export const actionWarningClassName = `${actionClassName}-WARNING`;
 export const actionInputClassName = `${actionClassName}-INPUT`;
+export const imageInputPickerClassName = `${actionClassName}__INPUT-PICKER`;
 export const actionLevelIndicatorClassName = `${actionClassName}-LEVEL-INDICATOR`;
 export const saveLevelClassName = `${actionClassName}-SAVE-LEVEL`;
 
