@@ -41,8 +41,6 @@ If you want to be kept up to date with this project and its features, report som
 
 # Other ways of installing the script
 
-There are <b>THREE</b> ways of implementing this script.
-
 ## 1. Copy pasting the script inside the developer console
 
 - Enable Discord's developer tools:
