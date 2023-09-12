@@ -2,13 +2,23 @@ import { themeChangeWarningDuration } from "../configs/durations";
 import { generalDarkThemeClassName, generalWhiteThemeClassName } from "../configs/identifiers";
 import { newErrorAlertText, themeChangeDetectionText } from "../configs/texts";
 import { observersStore, preferencesStore } from "../stores";
-import createAlert from "../utils/createAlert";
 import ClassChangeObserver from "./ClassChangeObserver";
+import createAlert from "./createAlert";
+
+export default function initObservers(): boolean {
+  if (initThemeChangeObserver()) {
+    // @ts-ignore
+    window.__TRANSPARENCY_OBSERVERS__ = observersStore;
+    return true;
+  }
+
+  return false;
+}
 
 /**
  * @returns true if the observer has has been successfully created, and false if there's been an error.
  */
-export default function initThemeChangeObserver(): boolean {
+function initThemeChangeObserver(): boolean {
   const isDarkTheme = preferencesStore.get("isDarkTheme") as boolean;
 
   const observer = new ClassChangeObserver({

@@ -31,7 +31,8 @@ export default function removeExistingCodeFootprint(): void {
     existingStyleSheet.remove();
   }
 
-  // BUG: by reappling the script more than once, existing observers are not unobserved.
-  // This could be fixed through attaching a custom property to the window object which holds all
-  // observers.
+  if ((window as any).__TRANSPARENCY_OBSERVERS__) {
+    for (const observer of (window as any).__TRANSPARENCY_OBSERVERS__.values()) observer.unobserve();
+    (window as any).__TRANSPARENCY_OBSERVERS__ = undefined;
+  }
 }

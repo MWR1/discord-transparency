@@ -25,7 +25,7 @@ module.exports = class PrepareCodeForAsarInjectionPlugin {
 
       require("child_process")
         .spawn("clip")
-        .stdin.end(require("fs").readFileSync("./main/startup-with-discord.js").toString("base64"));
+        .stdin.end(require("fs").readFileSync("./main/manual-copy-pasting.js").toString("base64"));
     });
   }
 };

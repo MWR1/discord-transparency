@@ -4,22 +4,25 @@
 
 // Overlays
 export const overlayBar =
-  ".typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ.horizontalReverse-2QssvL.flex-3BkGQD.directionRowReverse-HZatnx.justifyStart-2Mwniq.alignStretch-Uwowzr";
+  ".typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ, .typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ.withBackgroundOverride-gzmZco";
 export const overlayDarkener = ".app-3xd6d0";
+export const popupsContainer = ".layerContainer-2lfOPe";
 
 // Special elements with purpose other than styling the elements itself
 export const sidebarDarkThemeIndicator = ".bg-1QIAus";
 
 // Popups/Popouts of any kind
+export const accountSwitchPopup = ".toast-2sz4eO";
 export const threadsPopup = ".container-18GwIk";
 export const pinnedMessagesPopup = ".messagesPopoutWrap-3zryHW";
-export const inboxPopup = ".recentMentionsPopout-3rCiI6, .channelHeader-3Gd2xq";
+export const inboxPopup = ".recentMentionsPopout-3rCiI6, .channelHeader-DFRX8q";
 export const inboxUnreadPopup = ".container-2ebMPP.recentMentionsPopout-2bI1ZN";
 export const inboxForYouPopup = ".container-_dQaft";
 export const activeThreadsChannelHoverPopup = ".popout-TdhJ6Z";
 export const quickSwitcher = ".quickswitcher-pKcM9U";
 export const optionPopout = ".popout-15UxD6";
 export const onJoinServerPopout = ".main-jX9p1r";
+export const imageContextMenuPopup = ".menu-2TXYjN";
 
 // Tabs
 export const friendsTab = ".container-2cd8Mz";
@@ -27,7 +30,7 @@ export const nitroTab = ".applicationStore-2nk7Lo";
 export const homeTab = ".background-fkKrXt";
 export const discussionsTab = ".container-3wLKDe";
 export const discussionsTabTitle = ".themed-Hp1KC_";
-export const appDirectoryTab = ".directoryModal-YJsOMv";
+export const appDirectoryTab = ".directoryContainer-z-0pgp";
 export const rolesAndChannelsTab = ".container-2IKOsH, .container-1um7CU, .header-3xB4vB";
 export const discoverServersTab = ".pageWrapper-2PwDoS";
 
@@ -35,6 +38,7 @@ export const discoverServersTab = ".pageWrapper-2PwDoS";
 export const searchResultsPane = ".searchResultsWrap-5RVOkx";
 export const threadPane = ".container-3XgAHv";
 export const themeEditorPane = ".themeEditor-1Ebyfp";
+export const customiseChannelsAndRolesPane = ".emptyPage-2TGR7j, .scrollerContainer-y16Rs9";
 
 // Messages and everything about them
 export const allMessages = ".message-2CShn3";
@@ -56,9 +60,11 @@ export const aboutMeGuildIconTooltip = ".aboutMeGuildIconTooltip-tM91BN";
 
 // Emoji pickers and everything about emojis
 export const emojiGIFStickerPickers = ".contentWrapper-3vHNP2";
-export const reactionsPicker = ".emojiPicker-6YCk8a";
-export const reactionsPickerHeader = ".header-11eigE";
+export const reactionsPicker = ".contentWrapper-2f9yME";
+export const reactionsPickerSearch = ".header-11eigE";
 export const emojiInfo = ".popoutContainer-1MXdqN";
+export const stickyEmojiReactionPickerHeaders = ".wrapper-1NNaWG";
+export const superReactionsNoNitro = ".wrapper-2nNnyW";
 
 // Server settings tab
 export const stickyRoleManageHeader = ".header-JUTO-g";

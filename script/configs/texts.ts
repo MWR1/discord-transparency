@@ -8,6 +8,7 @@ export const backgroundChangerTipText =
 export const themeChangeDetectionText = "🛑 It looks the theme changed. Discord will refresh in 5 seconds.";
 export const imagePickerButtonText = "Press here to browse for an image on your computer";
 export const imagePickerInputText = "Paste image link here";
+export const setBackgroundButtonText = "Set as background image 🌟";
 
 // Functions
 export function newErrorAlertText(errorMessage: string): string {

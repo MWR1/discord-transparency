@@ -26,7 +26,7 @@ If you want to be kept up to date with this project and its features, report som
 
 #### Here are some cool things that have been added:
 
-- You can change the background image; <sup>(I mean this is the whole point of the script)</sup>
+- You can change the background image by either right clicking on an image, or using the appropriate action in the actions panel; <sup>(I mean this is the whole point of the script)</sup>
 
   ⚠ If you choose to add a background image via a link: you have to post the image on Discord first then use the link provided by them. Press on "Open original", and copy the link. Paste that in the text box from the corresponding action, then press Enter.
 

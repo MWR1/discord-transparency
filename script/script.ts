@@ -4,19 +4,20 @@ import { alertsStyleSheetID } from "./configs/identifiers";
 import { sidebarAlertText, welcomeText } from "./configs/texts";
 import initActionsPanel from "./initActionsPanel";
 import { alertsCSSCode } from "./styles";
+import contextMenuHandler from "./utils/contextMenuHandler";
 import createAlert from "./utils/createAlert";
 import createElement from "./utils/createElement";
 import getSidebarThemeState from "./utils/getSidebarThemeState";
 import initImportantElementsStore from "./utils/initImportantElementsStore";
 import initLocalStorage from "./utils/initLocalStorage";
+import initObservers from "./utils/initObservers";
 import initPreferencesStore from "./utils/initPreferencesStore";
-import initThemeChangeObserver from "./utils/initThemeChangeObserver";
 import removeExistingCodeFootprint from "./utils/removeExistingCodeFootprint";
 
 (function main(): void {
   removeExistingCodeFootprint();
   // Order of calls matters.
-  if (!initLocalStorage() || !initPreferencesStore() || !initThemeChangeObserver() || !initImportantElementsStore()) {
+  if (!initLocalStorage() || !initPreferencesStore() || !initObservers() || !initImportantElementsStore()) {
     removeExistingCodeFootprint();
     return;
   }
@@ -51,4 +52,8 @@ import removeExistingCodeFootprint from "./utils/removeExistingCodeFootprint";
       toggleTheme(actionsPanel);
     }
   };
+
+  // Event property handlers do not allow setting the capture flag
+  window.addEventListener("contextmenu", contextMenuHandler, { capture: true });
+  // BUG: context menu is null on first right click on an image. You have to right click again for the button to appear.
 })();

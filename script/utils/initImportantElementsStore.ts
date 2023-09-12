@@ -1,8 +1,8 @@
 import { NullableHTMLElement } from "../../types";
+import { overlayBar, overlayDarkener } from "../configs/classNames";
 import { generalTransparencyID } from "../configs/identifiers";
 import { importantElementsStore } from "../stores";
 import createMainCSSCode from "../styles/createMainCSSCode";
-import { overlayBar, overlayDarkener } from "./classNames";
 import createElement from "./createElement";
 import getElementWithAlert from "./getElementWithAlert";
 

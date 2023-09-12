@@ -1,5 +1,5 @@
+import * as classNames from "../configs/classNames";
 import * as identifiers from "../configs/identifiers";
-import * as classNames from "../utils/classNames";
 
 // for class name groupings
 // prettier-ignore
@@ -12,6 +12,7 @@ export default function rawCSSCode(options: { [key: string]: string }) {
   --deprecated-panel-background: transparent;
   --background-secondary-alt: transparent;
   --scrollbar-auto-track: transparent;
+  --home-background: transparent;
 }
 
 .theme-dark {
@@ -43,7 +44,7 @@ ${classNames.overlayDarkener}, ${classNames.themeEditorPane} {
 
 ${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab}, 
 ${classNames.appDirectoryTab}, ${classNames.rolesAndChannelsTab}, ${classNames.discoverServersTab},
-${classNames.discussionsTabTitle} {
+${classNames.discussionsTabTitle}, ${classNames.customiseChannelsAndRolesPane} {
   background-color: transparent !important;
 }
 
@@ -58,8 +59,10 @@ ${classNames.stickyRoleManageHeader} {
 
 ${classNames.userInfoModalNonpremium}, ${classNames.onJoinServerPopout}, ${classNames.inboxPopup},
 ${classNames.inboxUnreadPopup}, ${classNames.aboutMeGuildIconTooltip}, ${classNames.optionPopout},
-${classNames.reactionsPicker}, ${classNames.reactionsPickerHeader}, ${classNames.quickSwitcher},
-${classNames.pinnedMessagesPopup}, ${classNames.threadsPopup}, ${classNames.inboxForYouPopup} {
+${classNames.reactionsPicker}, ${classNames.reactionsPickerSearch}, ${classNames.stickyEmojiReactionPickerHeaders},
+${classNames.quickSwitcher}, ${classNames.pinnedMessagesPopup}, ${classNames.threadsPopup}, 
+${classNames.inboxForYouPopup}, ${classNames.accountSwitchPopup}, ${classNames.emojiGIFStickerPickers},
+${classNames.superReactionsNoNitro} {
 background-color: ${options.variousElementsBackgroundMoreOpaque} !important;
 }
 
@@ -69,6 +72,7 @@ ${classNames.rolePreviewArea} {
 
 ${classNames.stickyRoleManageHeader} {
   margin-left: -24px;
+  padding-left: 24px;
 }
 
 div[class=${classNames.blockedMessages.slice(1) /* remove dot */}]:not(${classNames.allMessages}) {

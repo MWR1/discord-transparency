@@ -1,7 +1,7 @@
 import { NullableHTMLElement } from "../../types";
+import { sidebarDarkThemeIndicator } from "../configs/classNames";
 import { generalDarkThemeClassName } from "../configs/identifiers";
 import { importantElementsStore, preferencesStore } from "../stores";
-import { sidebarDarkThemeIndicator } from "./classNames";
 import getElementWithAlert from "./getElementWithAlert";
 
 /**

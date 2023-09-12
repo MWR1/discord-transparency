@@ -12,6 +12,7 @@ export const actionsPanelOverlayID = `${actionsPanelID}-OVERLAY`;
 export const actionsPanelStyleSheetID = `${generalTransparencyID}__ACTIONS_PANEL`;
 export const alertsStyleSheetID = `${generalTransparencyID}__ALERTS-STYLESHEET`;
 export const imageInputPickerHiddenID = `${generalTransparencyID}__IMAGE-INPUT-PICKER`;
+export const setAsBackgroundImageButtonID = `${generalTransparencyID}__SET-BACKGROUND`;
 
 export const generalDarkThemeClassName = "theme-dark";
 export const generalWhiteThemeClassName = "theme-light";

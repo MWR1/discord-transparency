@@ -3,7 +3,6 @@ import { warningDuration } from "../configs/durations";
 import {
   actionInputClassName,
   actionWarningClassName,
-  backgroundImageStorageKey,
   imageInputPickerClassName,
   imageInputPickerHiddenID,
 } from "../configs/identifiers";
@@ -13,8 +12,7 @@ import {
   imagePickerInputText,
   newErrorAlertText,
 } from "../configs/texts";
-import { importantElementsStore, preferencesStore } from "../stores";
-import { newBackgroundImageCSSCode } from "../styles";
+import changeBackgroundImage from "../utils/changeBackgroundImage";
 import createAlert from "../utils/createAlert";
 import createElement from "../utils/createElement";
 
@@ -121,14 +119,6 @@ function initialiseImageReader(imageInputPickerHidden: HTMLInputElement, imageIn
       timeout: warningDuration,
     })
   );
-}
-
-function changeBackgroundImage(backgroundImageURL: string): void {
-  const mainStyleSheet = importantElementsStore.get("mainStyleSheet") as HTMLStyleElement;
-
-  mainStyleSheet.innerHTML += newBackgroundImageCSSCode(backgroundImageURL);
-  preferencesStore.set("backgroundImageURL", backgroundImageURL);
-  window.localStorage.setItem(backgroundImageStorageKey, backgroundImageURL);
 }
 
 export default backgroundChangerAction;

@@ -6,6 +6,7 @@ import {
   actionWarningClassName,
   imageInputPickerClassName,
   saveLevelClassName,
+  setAsBackgroundImageButtonID,
 } from "../configs/identifiers";
 
 export default `.${actionClassName} {
@@ -82,4 +83,15 @@ export default `.${actionClassName} {
   color: white;
   cursor: pointer;
 }
-`;
+
+#${setAsBackgroundImageButtonID} {
+  position: absolute;
+  left: 100%;
+  width: max-content;
+  padding: 10px;
+  margin-left: 4px;
+  background-color: inherit;
+  border-radius: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}`;
