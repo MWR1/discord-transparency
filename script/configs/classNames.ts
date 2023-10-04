@@ -23,6 +23,7 @@ export const quickSwitcher = ".quickswitcher-pKcM9U";
 export const optionPopout = ".popout-15UxD6";
 export const onJoinServerPopout = ".main-jX9p1r";
 export const imageContextMenuPopup = ".menu-2TXYjN";
+export const newAvatarDecorationsPopup = ".container-5qN7ct";
 
 // Tabs
 export const friendsTab = ".container-2cd8Mz";

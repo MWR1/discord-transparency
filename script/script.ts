@@ -53,7 +53,10 @@ import removeExistingCodeFootprint from "./utils/removeExistingCodeFootprint";
     }
   };
 
-  // Event property handlers do not allow setting the capture flag
+  /**
+   * Event property handlers do not allow setting the capture flag. We need to use the capture phase because Discord
+   * disabled event propagation. Because of that, we can't add a custom context menu event handler to happen in the
+   * bubbling phase. Discord applied it to a more specific element than the "window" object.
+   */
   window.addEventListener("contextmenu", contextMenuHandler, { capture: true });
-  // BUG: context menu is null on first right click on an image. You have to right click again for the button to appear.
 })();

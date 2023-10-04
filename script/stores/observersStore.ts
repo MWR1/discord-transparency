@@ -1,3 +1,3 @@
-import { IObserver } from "../../types";
+import { IMutationObserver } from "../../types";
 
-export default new Map<string, IObserver>();
+export default new Map<string, IMutationObserver>();

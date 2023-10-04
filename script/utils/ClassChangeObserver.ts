@@ -1,6 +1,5 @@
-import { IObserver } from "../../types";
-
-type onClassChangeCallbackType = (mutationList: MutationRecord[], observer: MutationObserver) => void;
+import { IMutationObserver } from "../../types";
+import { mutationObserverCallbackType } from "../../types/IMutationObserver";
 interface IClassChangeObserverParams {
   targetElement: HTMLElement;
   from: string;
@@ -11,13 +10,13 @@ interface IClassChangeObserverParams {
  * Observes class changes and executes a callback when a class changed into another.
  */
 
-export default class ClassChangeObserver implements IObserver {
+export default class ClassChangeObserver implements IMutationObserver {
   public targetElement: HTMLElement;
   private _from: string;
   private _to: string;
   private _wasClassNamePreviouslyPresent: boolean;
   private _observer: MutationObserver;
-  private _onClassChangeCallback: onClassChangeCallbackType | null = null;
+  private _callback: mutationObserverCallbackType | null = null;
 
   constructor({ targetElement, from, to }: IClassChangeObserverParams) {
     this.targetElement = targetElement;
@@ -26,8 +25,10 @@ export default class ClassChangeObserver implements IObserver {
     this._wasClassNamePreviouslyPresent =
       !this.targetElement.classList.contains(this._from) && this.targetElement.classList.contains(this._to);
 
-    this._observer = new MutationObserver((mutationList: MutationRecord[], observer: MutationObserver) => {
-      for (const mutation of mutationList) {
+    this._observer = new MutationObserver((mutations: MutationRecord[], observer: MutationObserver) => {
+      if (this._callback === null) throw new ReferenceError("No callback has been supplied on class change.");
+
+      for (const mutation of mutations) {
         if (mutation.type !== "attributes" || mutation.attributeName !== "class") continue;
 
         // mutation.target is of type Node for some reason. ok.
@@ -37,26 +38,24 @@ export default class ClassChangeObserver implements IObserver {
 
         if (didClassNameChange !== this._wasClassNamePreviouslyPresent) {
           this._wasClassNamePreviouslyPresent = didClassNameChange;
-          if (this._onClassChangeCallback === null)
-            throw new ReferenceError("No callback has been supplied on class change.");
 
-          this._onClassChangeCallback(mutationList, observer);
+          this._callback(mutation, observer);
         }
       }
     });
   }
 
-  public onClassChange(callback: onClassChangeCallbackType): IObserver {
-    this._onClassChangeCallback = callback;
+  public onTrigger(callback: mutationObserverCallbackType): IMutationObserver {
+    this._callback = callback;
     return this;
   }
 
-  public observe(options: MutationObserverInit | undefined): IObserver {
+  public observe(options?: MutationObserverInit): IMutationObserver {
     this._observer.observe(this.targetElement, options);
     return this;
   }
 
-  public unobserve(): IObserver {
+  public unobserve(): IMutationObserver {
     this._observer.disconnect();
     return this;
   }

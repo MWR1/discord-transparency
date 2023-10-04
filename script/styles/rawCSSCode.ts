@@ -62,7 +62,7 @@ ${classNames.inboxUnreadPopup}, ${classNames.aboutMeGuildIconTooltip}, ${classNa
 ${classNames.reactionsPicker}, ${classNames.reactionsPickerSearch}, ${classNames.stickyEmojiReactionPickerHeaders},
 ${classNames.quickSwitcher}, ${classNames.pinnedMessagesPopup}, ${classNames.threadsPopup}, 
 ${classNames.inboxForYouPopup}, ${classNames.accountSwitchPopup}, ${classNames.emojiGIFStickerPickers},
-${classNames.superReactionsNoNitro} {
+${classNames.superReactionsNoNitro}, ${classNames.newAvatarDecorationsPopup} {
 background-color: ${options.variousElementsBackgroundMoreOpaque} !important;
 }
 

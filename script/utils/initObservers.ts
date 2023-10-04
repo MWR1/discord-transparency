@@ -29,7 +29,7 @@ function initThemeChangeObserver(): boolean {
 
   try {
     observer
-      .onClassChange(() => {
+      .onTrigger(() => {
         createAlert({ text: themeChangeDetectionText, timeout: themeChangeWarningDuration }).then(() => {
           observer.unobserve();
           location.reload();
