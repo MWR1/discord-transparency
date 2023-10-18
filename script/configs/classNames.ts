@@ -4,8 +4,8 @@
 
 // Overlays
 export const overlayBar =
-  ".typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ, .typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ.withBackgroundOverride-gzmZco";
-export const overlayDarkener = ".app-3xd6d0";
+  ".typeWindows-3ILlhq.withFrame-1sEfxu.titleBar-3AIemB, .typeWindows-3ILlhq.withFrame-1sEfxu.titleBar-3AIemB.withBackgroundOverride-33VjI9";
+export const overlayDarkener = ".app-1BipOi";
 export const popupsContainer = ".layerContainer-2lfOPe";
 
 // Special elements with purpose other than styling the elements itself
@@ -51,7 +51,7 @@ export const codeBlocks = ".code.inline, .markup-2BOw-j code, code";
 export const downloadAttachment = ".attachment-1PZZB2";
 export const audioAttachment = ".wrapperAudio-1Bzv_Z";
 export const messageOptionsHoverPopout = ".wrapper-2vIMkT";
-export const retryConnectionOverlay = ".container-2RRFHK";
+export const retryConnectionOverlay = ".container-VXcBeg";
 export const clearAfterDropdown = ".popout-VcNcHB";
 export const reactionsBackground = ".reaction-3vwAF2";
 
