@@ -53,7 +53,7 @@ ${classNames.messageOptionsHoverPopout}, ${classNames.searchResultsPane}, ${clas
 ${classNames.retryConnectionOverlay}, ${classNames.clearAfterDropdown}, ${classNames.reactionsBackground},
 ${classNames.embedBackground}, ${classNames.downloadAttachment}, ${classNames.threadPane},
 ${classNames.emojiInfo}, ${classNames.invites}, ${classNames.codeBlocks},
-${classNames.stickyRoleManageHeader} {
+${classNames.stickyRoleManageHeader}, ${classNames.previewAppIconsPane} {
   background-color: ${options.variousElementsBackground} !important;
 }
 

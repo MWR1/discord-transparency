@@ -4,11 +4,11 @@
 
 // Overlays
 export const overlayBar =
-  ".typeWindows-3ILlhq.withFrame-1sEfxu.titleBar-3AIemB, .typeWindows-3ILlhq.withFrame-1sEfxu.titleBar-3AIemB.withBackgroundOverride-33VjI9";
-export const overlayDarkener = ".app-1BipOi";
+  ".typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ, .typeWindows-2-g3UY.withFrame-2dL45i.titleBar-1it3bQ.withBackgroundOverride-gzmZco";
+export const overlayDarkener = ".app-3xd6d0";
 export const popupsContainer = ".layerContainer-2lfOPe";
 
-// Special elements with purpose other than styling the elements themselves
+// Special elements with purpose other than styling the elements itself
 export const sidebarDarkThemeIndicator = ".bg-1QIAus";
 
 // Popups/Popouts of any kind
@@ -35,11 +35,12 @@ export const appDirectoryTab = ".directoryContainer-z-0pgp";
 export const rolesAndChannelsTab = ".container-2IKOsH, .container-1um7CU, .header-3xB4vB";
 export const discoverServersTab = ".pageWrapper-2PwDoS";
 
-// Big subsections of the screen (panes)
+// Significant subsections of the screen (panes)
 export const searchResultsPane = ".searchResultsWrap-5RVOkx";
 export const threadPane = ".container-3XgAHv";
 export const themeEditorPane = ".themeEditor-1Ebyfp";
 export const customiseChannelsAndRolesPane = ".emptyPage-2TGR7j, .scrollerContainer-y16Rs9";
+export const previewAppIconsPane = ".editor-1m9XtV";
 
 // Messages and everything about them
 export const allMessages = ".message-2CShn3";
@@ -50,7 +51,7 @@ export const codeBlocks = ".code.inline, .markup-2BOw-j code, code";
 export const downloadAttachment = ".attachment-1PZZB2";
 export const audioAttachment = ".wrapperAudio-1Bzv_Z";
 export const messageOptionsHoverPopout = ".wrapper-2vIMkT";
-export const retryConnectionOverlay = ".container-VXcBeg";
+export const retryConnectionOverlay = ".container-2RRFHK";
 export const clearAfterDropdown = ".popout-VcNcHB";
 export const reactionsBackground = ".reaction-3vwAF2";
 
