@@ -90,7 +90,7 @@ export default `.${actionClassName} {
   bottom: 0;
   width: max-content;
   padding: 10px;
-  margin-left: 4px;
+  margin-left: -15px;
   background-color: inherit;
   border-radius: inherit;
   font-size: 14px;

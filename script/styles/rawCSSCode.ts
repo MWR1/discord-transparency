@@ -37,32 +37,33 @@ ${classNames.overlayBar} {
   backdrop-filter: blur(${options.blurLevelPixels})
 }
 
-${classNames.overlayDarkener}, ${classNames.themeEditorPane} {
+${classNames.overlayDarkener}, ${classNames.themeEditorPane}, ${classNames.previewAppIconsPane} {
   background-color: ${options.brightnessLevelRGBA};
   backdrop-filter: blur(${options.blurLevelPixels})
 } 
 
 ${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab}, 
 ${classNames.appDirectoryTab}, ${classNames.rolesAndChannelsTab}, ${classNames.discoverServersTab},
-${classNames.discussionsTabTitle}, ${classNames.customiseChannelsAndRolesPane} {
+${classNames.discussionsTabTitle} {
   background-color: transparent !important;
 }
 
 ${classNames.activeThreadsChannelHoverPopup}, ${classNames.rolesContainerManualAdd}, ${classNames.audioAttachment}, 
 ${classNames.messageOptionsHoverPopout}, ${classNames.searchResultsPane}, ${classNames.emojiGIFStickerPickers},
 ${classNames.retryConnectionOverlay}, ${classNames.clearAfterDropdown}, ${classNames.reactionsBackground},
-${classNames.embedBackground}, ${classNames.downloadAttachment}, ${classNames.threadPane},
+${classNames.embedBackground}, ${classNames.downloadAttachment},
 ${classNames.emojiInfo}, ${classNames.invites}, ${classNames.codeBlocks},
-${classNames.stickyRoleManageHeader}, ${classNames.previewAppIconsPane} {
+${classNames.stickyRoleManageHeader}, ${classNames.previewAppIconsPane}, ${classNames.threadPane}, 
+${classNames.shopTab} {
   background-color: ${options.variousElementsBackground} !important;
 }
 
 ${classNames.userInfoModalNonpremium}, ${classNames.onJoinServerPopout}, ${classNames.inboxPopup},
-${classNames.inboxUnreadPopup}, ${classNames.aboutMeGuildIconTooltip}, ${classNames.optionPopout},
-${classNames.reactionsPicker}, ${classNames.reactionsPickerSearch}, ${classNames.stickyEmojiReactionPickerHeaders},
+${classNames.aboutMeGuildIconTooltip}, ${classNames.optionPopout},
+${classNames.reactionsPicker}, ${classNames.stickyEmojiReactionPickerHeaders},
 ${classNames.quickSwitcher}, ${classNames.pinnedMessagesPopup}, ${classNames.threadsPopup}, 
-${classNames.inboxForYouPopup}, ${classNames.accountSwitchPopup}, ${classNames.emojiGIFStickerPickers},
-${classNames.superReactionsNoNitro}, ${classNames.newAvatarDecorationsPopup} {
+${classNames.accountSwitchPopup}, ${classNames.emojiGIFStickerPickers}, ${classNames.superReactionsNoNitro},
+${classNames.newAvatarDecorationsPopup}, ${classNames.attachmentHoverButtons} {
 background-color: ${options.variousElementsBackgroundMoreOpaque} !important;
 }
 
@@ -75,7 +76,7 @@ ${classNames.stickyRoleManageHeader} {
   padding-left: 24px;
 }
 
-div[class=${classNames.blockedMessages.slice(1) /* remove dot */}]:not(${classNames.allMessages}) {
+${classNames.allMessages}:has(${classNames.blockedMessages}) {
   display: none;
 }
 
