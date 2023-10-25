@@ -5,24 +5,24 @@ import * as identifiers from "../configs/identifiers";
 // prettier-ignore
 export default function rawCSSCode(options: { [key: string]: string }) {
   return `.theme-dark, .theme-light {
-  --background-primary: transparent;
-  --background-secondary: transparent;
-  --background-tertiary: transparent;
-  --channeltextarea-background: transparent;
-  --deprecated-panel-background: transparent;
-  --background-secondary-alt: transparent;
-  --scrollbar-auto-track: transparent;
-  --home-background: transparent;
+  --background-primary: transparent !important;
+  --background-secondary: transparent !important;
+  --background-tertiary: transparent !important;
+  --channeltextarea-background: transparent !important;
+  --deprecated-panel-background: transparent !important;
+  --background-secondary-alt: transparent !important;
+  --scrollbar-auto-track: transparent !important;
+  --home-background: transparent !important;
 }
 
 .theme-dark {
-  --scrollbar-auto-thumb:rgba(255,255,255,0.3);
-  --profile-body-background-color: rgba(255, 255, 255, 0.1);   
+  --scrollbar-auto-thumb:rgba(255,255,255,0.3) !important;
+  --profile-body-background-color: rgba(255, 255, 255, 0.1) !important;   
 }
 
 .theme-light {
-  --scrollbar-auto-thumb:rgba(0,0,0,0.6);
-  --profile-body-background-color: rgba(0, 0, 0, 0.05);
+  --scrollbar-auto-thumb:rgba(0,0,0,0.6) !important;
+  --profile-body-background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 #app-mount {

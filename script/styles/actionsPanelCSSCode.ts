@@ -86,7 +86,8 @@ export default `.${actionClassName} {
 
 #${setAsBackgroundImageButtonID} {
   position: absolute;
-  left: 100%;
+  left: -100%;
+  bottom: 0;
   width: max-content;
   padding: 10px;
   margin-left: 4px;

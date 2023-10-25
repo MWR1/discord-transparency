@@ -4,12 +4,12 @@
 
 // Overlays
 export const overlayBar =
-  ".typeWindows-3ILlhq.withFrame-1sEfxu.titleBar-3AIemB, .typeWindows-3ILlhq.withFrame-1sEfxu.titleBar-3AIemB.withBackgroundOverride-33VjI9";
-export const overlayDarkener = ".app-1BipOi";
-export const popupsContainer = ".layerContainer-2lfOPe";
+  ".typeWindows__5fa63.withFrame__485f4.titleBar__01af6, .typeWindows__5fa63.withFrame__485f4.titleBar__01af6.withBackgroundOverride_b6a351";
+export const overlayDarkener = ".app_b1f720";
+export const popupsContainer = ".layerContainer_d5a653";
 
 // Special elements with purpose other than styling the elements itself
-export const sidebarDarkThemeIndicator = ".bg-1QIAus";
+export const sidebarDarkThemeIndicator = ".bg__7adbf";
 
 // Popups/Popouts of any kind
 export const accountSwitchPopup = ".toast-2sz4eO";
@@ -22,7 +22,7 @@ export const activeThreadsChannelHoverPopup = ".popout-TdhJ6Z";
 export const quickSwitcher = ".quickswitcher-pKcM9U";
 export const optionPopout = ".popout-15UxD6";
 export const onJoinServerPopout = ".main-jX9p1r";
-export const imageContextMenuPopup = ".menu-2TXYjN";
+export const imageContextMenuPopup = ".menu_dc52c6";
 export const newAvatarDecorationsPopup = ".container-5qN7ct";
 
 // Tabs
