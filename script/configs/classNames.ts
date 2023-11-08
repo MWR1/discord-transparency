@@ -61,7 +61,7 @@ export const aboutMeGuildIconTooltip = ".aboutMeGuildIconTooltip-tM91BN";
 
 // Emoji pickers and everything about emojis
 export const emojiGIFStickerPickers = ".contentWrapper__321ed";
-export const reactionsPicker = ".contentWrapper_eab878";
+export const reactionsPicker = ".wrapper__66cd5";
 export const emojiInfo = ".popoutContainer-1MXdqN";
 export const stickyEmojiReactionPickerHeaders = ".wrapper__7a35f";
 export const superReactionsNoNitro = ".wrapper-2nNnyW";

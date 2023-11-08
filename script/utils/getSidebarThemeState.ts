@@ -2,7 +2,6 @@ import { NullableHTMLElement } from "../../types";
 import { sidebarDarkThemeIndicator } from "../configs/classNames";
 import { generalDarkThemeClassName } from "../configs/identifiers";
 import { importantElementsStore, preferencesStore } from "../stores";
-import getElementWithAlert from "./getElementWithAlert";
 
 /**
  * Checks to see if the user has a white theme, but a dark sidebar. If that's so, the user must
@@ -19,7 +18,7 @@ export default function getSidebarThemeState() {
   if (overlayBarElement !== null)
     return !isDarkTheme && overlayBarElement.classList.contains(generalDarkThemeClassName);
 
-  const sidebarDarkThemeIndicatorElement: NullableHTMLElement = getElementWithAlert(sidebarDarkThemeIndicator);
+  const sidebarDarkThemeIndicatorElement: NullableHTMLElement = document.querySelector(sidebarDarkThemeIndicator);
   if (sidebarDarkThemeIndicatorElement !== null)
     return !isDarkTheme && sidebarDarkThemeIndicatorElement.classList.contains(generalDarkThemeClassName);
 
