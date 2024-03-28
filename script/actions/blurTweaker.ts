@@ -49,15 +49,15 @@ const blurTweaker: IAction = {
 
 function updateBlur(blurLevelIndicator: HTMLHeadingElement, blurLevelSlider: HTMLInputElement): void {
   const overlayDarkenerElement = importantElementsStore.get("overlayDarkenerElement") as HTMLDivElement;
-  const overlayBarElement = importantElementsStore.get("overlayBarElement") as NullableHTMLElement;
+  const titleBarElement = importantElementsStore.get("titleBarElement") as NullableHTMLElement;
 
   // https://githubmemory.com/repo/microsoft/TypeScript-DOM-lib-generator/issues/1118
   type BackdropFilterSupport = CSSStyleDeclaration & { backdropFilter: string };
 
   (overlayDarkenerElement.style as BackdropFilterSupport).backdropFilter = `blur(${blurLevelSlider.value}px)`;
 
-  if (overlayBarElement !== null)
-    (overlayBarElement.style as BackdropFilterSupport).backdropFilter = `blur(${blurLevelSlider.value}px)`;
+  if (titleBarElement !== null)
+    (titleBarElement.style as BackdropFilterSupport).backdropFilter = `blur(${blurLevelSlider.value}px)`;
 
   blurLevelIndicator.textContent = `Blur level: ${blurLevelSlider.value}`;
   preferencesStore.set("blur", parseInt(blurLevelSlider.value));

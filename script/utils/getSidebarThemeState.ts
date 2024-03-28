@@ -10,13 +10,12 @@ import { importantElementsStore, preferencesStore } from "../stores";
  */
 export default function getSidebarThemeState() {
   const isDarkTheme = preferencesStore.get("isDarkTheme") as boolean;
-  const overlayBarElement = importantElementsStore.get("overlayBarElement") as NullableHTMLElement;
-  // We can check whether the sidebar is dark themed by checking whether the overlayBar
+  const titleBarElement = importantElementsStore.get("titleBarElement") as NullableHTMLElement;
+  // We can check whether the sidebar is dark themed by checking whether the titleBar
   // is dark themed, and the global theme is white.
-  // If overlayBar doesn't exist, then we use another element, represented by the class name
+  // If titleBar doesn't exist, then we use another element, represented by the class name
   // of "sidebarDarkThemeIndicator".
-  if (overlayBarElement !== null)
-    return !isDarkTheme && overlayBarElement.classList.contains(generalDarkThemeClassName);
+  if (titleBarElement !== null) return !isDarkTheme && titleBarElement.classList.contains(generalDarkThemeClassName);
 
   const sidebarDarkThemeIndicatorElement: NullableHTMLElement = document.querySelector(sidebarDarkThemeIndicator);
   if (sidebarDarkThemeIndicatorElement !== null)

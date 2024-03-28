@@ -27,4 +27,4 @@ export const imageInputPickerClassName = `${actionClassName}__INPUT-PICKER`;
 export const actionLevelIndicatorClassName = `${actionClassName}-LEVEL-INDICATOR`;
 export const saveLevelClassName = `${actionClassName}-SAVE-LEVEL`;
 
-export const overlayBarElementBackgroundColor = "var(--color-tertiary)";
+export const titleBarElementBackgroundColor = "var(--color-tertiary)";

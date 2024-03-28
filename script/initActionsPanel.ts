@@ -44,8 +44,8 @@ export default function initActionsPanel(): {
     htmlProps: { id: actionsPanelStyleSheetID, innerHTML: actionsPanelCSSCode },
   });
 
-  const overlayBarElement = importantElementsStore.get("overlayBarElement") as NullableHTMLElement;
-  if (overlayBarElement !== null) actionsPanel.style.paddingTop = "20px";
+  const titleBarElement = importantElementsStore.get("titleBarElement") as NullableHTMLElement;
+  if (titleBarElement !== null) actionsPanel.style.paddingTop = "20px";
 
   for (const action of actions) {
     const actionBox: HTMLDivElement = createElement<HTMLDivElement>({

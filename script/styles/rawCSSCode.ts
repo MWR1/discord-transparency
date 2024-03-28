@@ -30,7 +30,7 @@ export default function rawCSSCode(options: { [key: string]: string }) {
   background-size: cover;
 }
 
-${classNames.overlayBar} {
+${classNames.titleBar} {
   margin-top: 0;
   padding-top: 4px;
   background: ${options.brightnessLevelRGBA};
@@ -38,11 +38,11 @@ ${classNames.overlayBar} {
 }
 
 ${classNames.overlayDarkener}, ${classNames.themeEditorPane}, ${classNames.previewAppIconsPane} {
-  background-color: ${options.brightnessLevelRGBA};
-  backdrop-filter: blur(${options.blurLevelPixels})
+  background-color: ${options.brightnessLevelRGBA} !important;
+  backdrop-filter: blur(${options.blurLevelPixels}) !important;
 } 
 
-${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.homeTab}, ${classNames.discussionsTab}, 
+${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.discussionsTab}, 
 ${classNames.appDirectoryTab}, ${classNames.rolesAndChannelsTab}, ${classNames.discoverServersTab},
 ${classNames.discussionsTabTitle} {
   background-color: transparent !important;
@@ -52,9 +52,9 @@ ${classNames.activeThreadsChannelHoverPopup}, ${classNames.rolesContainerManualA
 ${classNames.messageOptionsHoverPopout}, ${classNames.searchResultsPane}, ${classNames.emojiGIFStickerPickers},
 ${classNames.retryConnectionOverlay}, ${classNames.clearAfterDropdown}, ${classNames.reactionsBackground},
 ${classNames.embedBackground}, ${classNames.downloadAttachment},
-${classNames.emojiInfo}, ${classNames.invites}, ${classNames.codeBlocks},
+${classNames.viewReactions}, ${classNames.invites}, ${classNames.codeBlocks},
 ${classNames.stickyRoleManageHeader}, ${classNames.previewAppIconsPane}, ${classNames.threadPane}, 
-${classNames.shopTab} {
+${classNames.shopTab}, ${classNames.createPoll} {
   background-color: ${options.variousElementsBackground} !important;
 }
 
@@ -63,7 +63,7 @@ ${classNames.aboutMeGuildIconTooltip}, ${classNames.optionPopout},
 ${classNames.reactionsPicker}, ${classNames.stickyEmojiReactionPickerHeaders},
 ${classNames.quickSwitcher}, ${classNames.pinnedMessagesPopup}, ${classNames.threadsPopup}, 
 ${classNames.accountSwitchPopup}, ${classNames.emojiGIFStickerPickers}, ${classNames.superReactionsNoNitro},
-${classNames.newAvatarDecorationsPopup}, ${classNames.attachmentHoverButtons} {
+${classNames.newAvatarDecorationsPopup}, ${classNames.attachmentButtons} {
 background-color: ${options.variousElementsBackgroundMoreOpaque} !important;
 }
 

@@ -1,7 +1,7 @@
 import NullableHTMLElement from "./NullableHTMLElement";
 
 export default interface IImportantElementsStore {
-  overlayBarElement: NullableHTMLElement;
+  titleBarElement: NullableHTMLElement;
   overlayDarkenerElement: HTMLDivElement;
   mainStyleSheet: HTMLStyleElement;
 }

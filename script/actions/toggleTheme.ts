@@ -1,5 +1,5 @@
 import { NullableHTMLElement } from "../../types";
-import { actionsPanelActiveClassName, overlayBarElementBackgroundColor } from "../configs/identifiers";
+import { actionsPanelActiveClassName, titleBarElementBackgroundColor } from "../configs/identifiers";
 import { importantElementsStore, preferencesStore } from "../stores";
 
 /**
@@ -8,11 +8,11 @@ import { importantElementsStore, preferencesStore } from "../stores";
 
 export default function toggleTheme(actionsPanel: HTMLElement): void {
   const mainStyleSheet = importantElementsStore.get("mainStyleSheet") as HTMLStyleElement;
-  const overlayBarElement = importantElementsStore.get("overlayBarElement") as NullableHTMLElement;
+  const titleBarElement = importantElementsStore.get("titleBarElement") as NullableHTMLElement;
 
   if (!mainStyleSheet.hasAttribute("media")) {
     mainStyleSheet.setAttribute("media", "1px");
-    if (overlayBarElement !== null) overlayBarElement.style.backgroundColor = overlayBarElementBackgroundColor;
+    if (titleBarElement !== null) titleBarElement.style.backgroundColor = titleBarElementBackgroundColor;
     actionsPanel.style.display = "none";
     return;
   }
@@ -22,8 +22,8 @@ export default function toggleTheme(actionsPanel: HTMLElement): void {
 
   mainStyleSheet.removeAttribute("media");
 
-  if (overlayBarElement !== null)
-    overlayBarElement.style.backgroundColor = isDarkTheme
+  if (titleBarElement !== null)
+    titleBarElement.style.backgroundColor = isDarkTheme
       ? `rgba(0,0,0,0.${brightnessLevel}`
       : `rgba(255,255,255,0.${brightnessLevel}`;
 

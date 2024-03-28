@@ -1,5 +1,5 @@
 import { NullableHTMLElement } from "../../types";
-import { imageContextMenuPopup } from "../configs/classNames";
+import { messageContextMenu } from "../configs/classNames";
 import { noFindContextMenuObserverTimeoutDuration } from "../configs/durations";
 import { setAsBackgroundImageButtonID } from "../configs/identifiers";
 import { newErrorAlertText, setBackgroundButtonText } from "../configs/texts";
@@ -30,13 +30,15 @@ export default function contextMenuHandler(event: Event): void {
     return;
 
   let contextMenu: NullableHTMLElement = null;
-  const observer = new ContextMenuObserver(document.body);
 
+  // Here we need a context menu observer because between the moment the handler is called, and the moment the menu element
+  // is added to the DOM by Discord's code, there's a nondeterministic period of time.
+  const observer = new ContextMenuObserver(document.body);
   try {
     observer
       .onTrigger((mutation: MutationRecord) => {
         const mutationTarget: HTMLElement = mutation.target as HTMLElement;
-        contextMenu = mutationTarget.querySelector(imageContextMenuPopup);
+        contextMenu = mutationTarget.querySelector(messageContextMenu);
         if (contextMenu === null || contextMenu.role !== "menu") return;
 
         createSetBackgroundImageButton(contextMenu, imageElement);

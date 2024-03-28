@@ -1,5 +1,5 @@
 import { NullableHTMLElement } from "../../types";
-import { overlayBar, overlayDarkener } from "../configs/classNames";
+import { overlayDarkener, titleBar } from "../configs/classNames";
 import { generalTransparencyID } from "../configs/identifiers";
 import { importantElementsStore } from "../stores";
 import createMainCSSCode from "../styles/createMainCSSCode";
@@ -15,8 +15,8 @@ export default function initImportantElementsStore(): boolean {
 
   // We didn't use getElementWithAlert here, because it shows an alert if the element
   // is not defined - which is good, but not in this case.
-  // In this case the overlayBar element doesn't exist in the browser version of Discord.
-  const overlayBarElement: NullableHTMLElement = document.querySelector(overlayBar);
+  // In this case the titleBar element doesn't exist in the browser version of Discord.
+  const titleBarElement: NullableHTMLElement = document.querySelector(titleBar);
   const mainStyleSheet: HTMLStyleElement = createElement<HTMLStyleElement>({
     elementName: "style",
     appendTo: document.head,
@@ -24,7 +24,7 @@ export default function initImportantElementsStore(): boolean {
   });
 
   importantElementsStore
-    .set("overlayBarElement", overlayBarElement)
+    .set("titleBarElement", titleBarElement)
     .set("overlayDarkenerElement", overlayDarkenerElement)
     .set("mainStyleSheet", mainStyleSheet);
 

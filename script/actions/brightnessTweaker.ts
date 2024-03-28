@@ -60,12 +60,12 @@ function updateBrightness({
   brightnessLevelSlider,
 }: UpdateBrightnessParams): void {
   const overlayDarkenerElement = importantElementsStore.get("overlayDarkenerElement") as HTMLDivElement;
-  const overlayBarElement = importantElementsStore.get("overlayBarElement") as NullableHTMLElement;
+  const titleBarElement = importantElementsStore.get("titleBarElement") as NullableHTMLElement;
 
   overlayDarkenerElement.style.backgroundColor = `rgba(${overlayColor}, .${brightnessLevelSlider.value})`;
 
-  if (overlayBarElement !== null)
-    overlayBarElement.style.backgroundColor = `rgba(${overlayColor}, .${brightnessLevelSlider.value})`;
+  if (titleBarElement !== null)
+    titleBarElement.style.backgroundColor = `rgba(${overlayColor}, .${brightnessLevelSlider.value})`;
 
   brightnessLevelIndicator.textContent = `Brightness level: ${brightnessLevelSlider.value}`;
   preferencesStore.set("brightness", parseInt(brightnessLevelSlider.value));
