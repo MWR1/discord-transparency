@@ -52,6 +52,7 @@ If you want to be kept up to date with this project and its features, report som
 
 - Press `CTRL + SHIFT + I` inside Discord. A tab should open to the side;
 - Navigate to the `Console` tab, near the top right corner;
+- Type 'allow pasting' inside the console;
 - Copy the script from above, from the files section, in this page, in the folder `main`, from inside the file <b>`manual-copy-pasting.js`</b>;
 - Go to Discord, then inside the Console tab paste the script you've just copied; <br>
   ❗ While this is the easier way to set it up, each time Discord launches, you will have to follow most of the same steps again, because the script will be deleted with each relaunch of the Discord client. <b>But you can do this:</b>
@@ -59,8 +60,7 @@ If you want to be kept up to date with this project and its features, report som
 
 ## 2. Launching the script with Discord
 
-❗ This is a little bit harder than the copy and pasting technique, but you won't have to open the developer console again and again, each time Discord launches. This entire procedure is automated with
-[the installer. To download it, look below "Assets"](https://github.com/MWR1/DTInstaller/releases).
+❗ This is a little bit harder than the copy and pasting technique, but you won't have to open the developer console again and again, each time Discord launches. [This entire procedure is automated with the installer. To download it, look below "Assets"](https://github.com/MWR1/DTInstaller/releases).
 
 ### Windows
 
