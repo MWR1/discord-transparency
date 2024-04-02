@@ -38,8 +38,8 @@ ${classNames.titleBar} {
 }
 
 ${classNames.overlayDarkener}, ${classNames.themeEditorPane}, ${classNames.previewAppIconsPane} {
-  background-color: ${options.brightnessLevelRGBA} !important;
-  backdrop-filter: blur(${options.blurLevelPixels}) !important;
+  background-color: ${options.brightnessLevelRGBA};
+  backdrop-filter: blur(${options.blurLevelPixels});
 } 
 
 ${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.discussionsTab}, 
