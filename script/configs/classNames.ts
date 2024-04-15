@@ -56,7 +56,7 @@ export const reactionsBackground = ".reaction__4a43f";
 export const attachmentButtons = ".hoverButtonGroup__304b2";
 
 // User info modals and elements
-export const userInfoModalNonpremium = ".userProfileInnerThemedNonPremium_ed9022";
+export const userInfoModalNonpremium = ".userProfileInnerThemedNonPremium_b64fb4";
 export const rolesContainerManualAdd = ".container_cff83e";
 export const aboutMeGuildIconTooltip = ".aboutMeGuildIconTooltip-tM91BN";
 
