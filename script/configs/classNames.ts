@@ -5,7 +5,7 @@
 // Overlays
 export const titleBar =
   ".typeWindows_a934d8.withFrame_a934d8.titleBar_a934d8,  .typeWindows_a934d8.withFrame_a934d8.titleBar_a934d8.withBackgroundOverride_a934d8";
-export const overlayDarkener = ".app_a01fb1";
+export const overlayDarkener = ".app_bd26cc";
 export const popupsContainer = ".layerContainer_cd0de5";
 
 // Special elements with purpose other than styling the elements itself
