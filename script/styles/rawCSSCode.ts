@@ -42,28 +42,27 @@ ${classNames.overlayDarkener}, ${classNames.themeEditorPane}, ${classNames.previ
   backdrop-filter: blur(${options.blurLevelPixels});
 } 
 
-${classNames.friendsTab}, ${classNames.nitroTab}, ${classNames.discussionsTab}, 
+${classNames.nitroTab}, ${classNames.discussionsTab}, 
 ${classNames.appDirectoryTab}, ${classNames.rolesAndChannelsTab}, ${classNames.discoverServersTab},
 ${classNames.discussionsTabTitle} {
   background-color: transparent !important;
 }
 
-${classNames.activeThreadsChannelHoverPopup}, ${classNames.rolesContainerManualAdd}, ${classNames.audioAttachment}, 
+${classNames.rolesContainerManualAdd}, ${classNames.audioAttachment}, 
 ${classNames.messageOptionsHoverPopout}, ${classNames.searchResultsPane}, ${classNames.emojiGIFStickerPickers},
-${classNames.retryConnectionOverlay}, ${classNames.clearAfterDropdown}, ${classNames.reactionsBackground},
+${classNames.retryConnectionOverlay}, ${classNames.reactionsBackground},
 ${classNames.embedBackground}, ${classNames.downloadAttachment},
 ${classNames.viewReactions}, ${classNames.invites}, ${classNames.codeBlocks},
 ${classNames.stickyRoleManageHeader}, ${classNames.previewAppIconsPane}, ${classNames.threadPane}, 
-${classNames.shopTab}, ${classNames.createPoll} {
+${classNames.createPoll}, ${classNames.pollDurationPicker} {
   background-color: ${options.variousElementsBackground} !important;
 }
 
-${classNames.userInfoModalNonpremium}, ${classNames.onJoinServerPopout}, ${classNames.inboxPopup},
-${classNames.aboutMeGuildIconTooltip}, ${classNames.optionPopout},
+${classNames.oldUserInfoModalNonPremium}, ${classNames.onJoinServerPopout}, ${classNames.inboxPopup},
 ${classNames.reactionsPicker}, ${classNames.stickyEmojiReactionPickerHeaders},
 ${classNames.quickSwitcher}, ${classNames.pinnedMessagesPopup}, ${classNames.threadsPopup}, 
 ${classNames.accountSwitchPopup}, ${classNames.emojiGIFStickerPickers}, ${classNames.superReactionsNoNitro},
-${classNames.newAvatarDecorationsPopup}, ${classNames.attachmentButtons} {
+${classNames.attachmentButtons}, ${classNames.cantReactWithAnimatedEmote} {
 background-color: ${options.variousElementsBackgroundMoreOpaque} !important;
 }
 

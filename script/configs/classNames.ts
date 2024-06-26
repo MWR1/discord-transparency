@@ -4,69 +4,63 @@
 
 // Overlays
 export const titleBar =
-  ".typeWindows_e41dab.withFrame__5e49e.titleBar__710b0, .typeWindows_e41dab.withFrame__5e49e.titleBar__710b0.withBackgroundOverride_f510cb";
-export const overlayDarkener = ".app_b1f720";
-export const popupsContainer = ".layerContainer_a2fcaa";
+  ".typeWindows_a934d8.withFrame_a934d8.titleBar_a934d8,  .typeWindows_a934d8.withFrame_a934d8.titleBar_a934d8.withBackgroundOverride_a934d8";
+export const overlayDarkener = ".app_a01fb1";
+export const popupsContainer = ".layerContainer_cd0de5";
 
 // Special elements with purpose other than styling the elements itself
 export const sidebarDarkThemeIndicator = ".bg__7adbf";
 
 // Popups/Popouts of any kind
-export const accountSwitchPopup = ".toast_f06316";
-export const threadsPopup = ".browser_fa9cea";
-export const pinnedMessagesPopup = ".messagesPopoutWrap__10dd1";
-export const inboxPopup = ".recentMentionsPopout__40c54";
-export const activeThreadsChannelHoverPopup = ".popout-TdhJ6Z";
-export const quickSwitcher = ".quickswitcher_b5bb0a";
-export const createPoll = ".container_f5b15d";
-export const optionPopout = ".popout-15UxD6";
-export const onJoinServerPopout = ".main-jX9p1r";
+export const accountSwitchPopup = ".toast_f42767";
+export const threadsPopup = ".browser_f542fc";
+export const pinnedMessagesPopup = ".messagesPopoutWrap_ac90a2";
+export const inboxPopup = ".recentMentionsPopout_ddb5b4";
+export const quickSwitcher = ".quickswitcher_f4e139";
+export const createPoll = ".container_f24a96";
+export const pollDurationPicker = ".popout_f6639d";
+export const onJoinServerPopout = ".main_e3f8c2";
 export const messageContextMenu = ".menu__088f7";
-export const newAvatarDecorationsPopup = ".container-5qN7ct";
 
 // Tabs
-export const friendsTab = ".container-2cd8Mz";
-export const nitroTab = ".applicationStore__444b9";
+export const nitroTab = ".applicationStore_cecc86";
 export const discussionsTab = ".container-3wLKDe";
 export const discussionsTabTitle = ".themed-Hp1KC_";
-export const appDirectoryTab = ".directoryContainer__36395";
-export const rolesAndChannelsTab =
-  ".container__03ec9, .header__71942, .scrollerContainer_dda72c, .emptyPage_feb902, .container__6b2e5";
-export const discoverServersTab = ".pageWrapper_c182d3";
-export const shopTab = ".shop_b31ed2";
+export const appDirectoryTab = ".directoryContainer_da3f59";
+export const rolesAndChannelsTab = ".header_f1fd9c, .container_e44302, .chat_a7d72e, .scrollerContainer_c6b11b";
+export const discoverServersTab = ".pageWrapper_a3a4ce";
 
 // Significant subsections of the screen (panes)
-export const searchResultsPane = ".searchResultsWrap__2e184";
-export const themeEditorPane = ".themeEditor__8f359";
-export const previewAppIconsPane = ".editor_e77931";
-export const threadPane = ".container__694a1";
+export const searchResultsPane = ".searchResultsWrap_c2b47d";
+export const themeEditorPane = ".themeEditor_c9dda6";
+export const previewAppIconsPane = ".editor_bcfa1e";
+export const threadPane = ".container_d1c246";
 
 // Messages and everything about them
-export const allMessages = ".wrapper_a62503";
-export const blockedMessages = ".blockedSystemMessage_d1b25e";
-export const embedBackground = ".embedFull__14919";
-export const invites = ".wrapper__8a5dd";
+export const allMessages = ".wrapper_ec86aa";
+export const blockedMessages = ".blockedSystemMessage_c09d0f";
+export const embedBackground = ".embedFull_ad0b71";
+export const invites = ".wrapper_b9fe76";
 export const codeBlocks = ".code.inline, .markup-2BOw-j code, code";
-export const downloadAttachment = ".attachment__06ca3";
-export const audioAttachment = ".wrapperAudio__178e9";
-export const messageOptionsHoverPopout = ".wrapper__4e6b6";
-export const retryConnectionOverlay = ".container__827e6";
-export const clearAfterDropdown = ".popout-VcNcHB";
-export const reactionsBackground = ".reaction__4a43f";
-export const attachmentButtons = ".hoverButtonGroup__304b2";
+export const downloadAttachment = ".attachment_a4623d";
+export const audioAttachment = ".wrapperAudio_f72aac";
+export const messageOptionsHoverPopout = ".wrapper_ef319f";
+export const retryConnectionOverlay = ".container_e40c16";
+export const reactionsBackground = ".reaction_ec6b19";
+export const attachmentButtons = ".hoverButtonGroup_ab8b23";
 
 // User info modals and elements
-export const userInfoModalNonpremium = ".userProfileInnerThemedNonPremium_b64fb4";
-export const rolesContainerManualAdd = ".container_cff83e";
-export const aboutMeGuildIconTooltip = ".aboutMeGuildIconTooltip-tM91BN";
+export const oldUserInfoModalNonPremium = ".userProfileInnerThemedNonPremium_c69a7b";
+export const rolesContainerManualAdd = ".container_ac201b";
 
 // Emoji pickers and everything about emojis
-export const emojiGIFStickerPickers = ".contentWrapper_e0bb2c";
-export const reactionsPicker = ".wrapper__0757b";
-export const viewReactions = ".container_f8ef5d, .reactors__0f305";
-export const stickyEmojiReactionPickerHeaders = ".wrapper__91b2c";
-export const superReactionsNoNitro = ".wrapper-2nNnyW";
+export const emojiGIFStickerPickers = ".contentWrapper_af5dbb";
+export const reactionsPicker = ".wrapper_c6ee36";
+export const viewReactions = ".container_f2bfbb, .reactors_f2bfbb";
+export const stickyEmojiReactionPickerHeaders = ".wrapper_e06857";
+export const superReactionsNoNitro = ".wrapper_c43059";
+export const cantReactWithAnimatedEmote = ".premiumPromo_ca9b56";
 
 // Server settings tab
-export const stickyRoleManageHeader = ".header_ee0bd9";
-export const rolePreviewArea = ".rolePreviewArea-3eeTql";
+export const stickyRoleManageHeader = ".header_bd05f1";
+export const rolePreviewArea = ".previewContainer_da1bd9";

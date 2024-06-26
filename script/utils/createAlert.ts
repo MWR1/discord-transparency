@@ -26,6 +26,8 @@ export default function createAlert({ text, timeout, containsHTML = false }: Cre
     },
   });
 
+  alert.style.setProperty("--timer-bar-timeout", `${timeout}ms`);
+
   return new Promise((resolve) => {
     setTimeout(() => {
       alert.classList.add(transparencyAlertInactiveClassName);
