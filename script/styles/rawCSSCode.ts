@@ -13,6 +13,7 @@ export default function rawCSSCode(options: { [key: string]: string }) {
   --background-secondary-alt: transparent !important;
   --scrollbar-auto-track: transparent !important;
   --home-background: transparent !important;
+  --card-secondary-bg: ${options.variousElementsBackground} !important;
 }
 
 .theme-dark {
@@ -54,7 +55,8 @@ ${classNames.retryConnectionOverlay}, ${classNames.reactionsBackground},
 ${classNames.embedBackground}, ${classNames.downloadAttachment},
 ${classNames.viewReactions}, ${classNames.invites}, ${classNames.codeBlocks},
 ${classNames.stickyRoleManageHeader}, ${classNames.previewAppIconsPane}, ${classNames.threadPane}, 
-${classNames.createPoll}, ${classNames.pollDurationPicker} {
+${classNames.createPoll}, ${classNames.pollDurationPicker}, ${classNames.userVoiceActivityHoverPopout},
+${classNames.streamPreviewPopup} {
   background-color: ${options.variousElementsBackground} !important;
 }
 

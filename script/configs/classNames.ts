@@ -20,7 +20,9 @@ export const quickSwitcher = ".quickswitcher_f4e139";
 export const createPoll = ".container_f24a96";
 export const pollDurationPicker = ".popout_f6639d";
 export const onJoinServerPopout = ".main_e3f8c2";
-export const messageContextMenu = ".menu__088f7";
+export const messageContextMenu = ".menu_d90b3d";
+export const streamPreviewPopup = ".streamPreview_adbea6";
+export const userVoiceActivityHoverPopout = ".popout_a9414b";
 
 // Tabs
 export const nitroTab = ".applicationStore_cecc86";
@@ -37,12 +39,12 @@ export const previewAppIconsPane = ".editor_bcfa1e";
 export const threadPane = ".container_d1c246";
 
 // Messages and everything about them
-export const allMessages = ".wrapper_ec86aa";
+export const allMessages = ".wrapper_f9f2ca";
 export const blockedMessages = ".blockedSystemMessage_c09d0f";
-export const embedBackground = ".embedFull_ad0b71";
-export const invites = ".wrapper_b9fe76";
+export const embedBackground = ".embedFull_b0068a";
+export const invites = ".wrapper_a71a1c";
 export const codeBlocks = ".code.inline, .markup-2BOw-j code, code";
-export const downloadAttachment = ".attachment_a4623d";
+export const downloadAttachment = ".attachment_b52bef";
 export const audioAttachment = ".wrapperAudio_f72aac";
 export const messageOptionsHoverPopout = ".wrapper_ef319f";
 export const retryConnectionOverlay = ".container_e40c16";

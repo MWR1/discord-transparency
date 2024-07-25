@@ -9,6 +9,7 @@ export const themeChangeDetectionText = "🛑 It looks like the theme has change
 export const imagePickerButtonText = "Press here to browse for an image on your computer";
 export const imagePickerInputText = "Paste image link here";
 export const setBackgroundButtonText = "Set as background image 🌟";
+export const missingMenuBarText = "Default menu element not found. Searching manually...";
 
 // Functions
 export function newErrorAlertText(errorMessage: string): string {

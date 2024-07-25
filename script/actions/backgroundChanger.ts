@@ -77,7 +77,6 @@ function initialiseImageReader(imageInputPickerHidden: HTMLInputElement, imageIn
   const chosenImage: File = imageInputPickerHidden.files[0];
   const imageReader = new FileReader();
 
-  // TODO: how dafuk do i trigger an error during load.
   imageReader.readAsDataURL(chosenImage);
   imageReader.addEventListener("loadstart", () => {
     imageInputPickerLabel.textContent = "Loading image...";

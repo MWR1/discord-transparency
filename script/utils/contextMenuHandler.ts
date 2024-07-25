@@ -1,11 +1,12 @@
 import { NullableHTMLElement } from "../../types";
 import { messageContextMenu } from "../configs/classNames";
-import { noFindContextMenuObserverTimeoutDuration } from "../configs/durations";
+import { missingMenuBarAlertDuration, noFindContextMenuObserverTimeoutDuration } from "../configs/durations";
 import { setAsBackgroundImageButtonID } from "../configs/identifiers";
-import { newErrorAlertText, setBackgroundButtonText } from "../configs/texts";
+import { missingMenuBarText, newErrorAlertText, setBackgroundButtonText } from "../configs/texts";
 import { observersStore, preferencesStore } from "../stores";
 import ContextMenuObserver from "./ContextMenuObserver";
 import changeBackgroundImage from "./changeBackgroundImage";
+import createAlert from "./createAlert";
 import createElement from "./createElement";
 import findPossibleMenuBar from "./findPossibleMenuBar";
 
@@ -39,7 +40,13 @@ export default function contextMenuHandler(event: Event): void {
       .onTrigger((mutation: MutationRecord) => {
         const mutationTarget: HTMLElement = mutation.target as HTMLElement;
         contextMenu = mutationTarget.querySelector(messageContextMenu);
-        if (contextMenu === null || contextMenu.role !== "menu") return;
+
+        if (contextMenu === null || contextMenu.role !== "menu") {
+          createAlert({ text: missingMenuBarText, timeout: missingMenuBarAlertDuration });
+          observer.unobserve();
+          observersStore.delete("contextMenuCreationObserver");
+          return;
+        }
 
         createSetBackgroundImageButton(contextMenu, imageElement);
 
